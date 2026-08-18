@@ -306,3 +306,7 @@ footer {
 
 .social-btn.rubika { border: 1px solid #7d52a8; color: #7d52a8; padding: 0.7rem 1rem; border-radius: 6px; text-decoration: none; display: inline-block; }
 .social-btn.rubika:hover { background: #7d52a8; color: #fff; }
+
+/* Instagram Button Style */
+.social-btn.instagram { border: 1px solid #E1306C; color: #E1306C; padding: 0.7rem 1rem; border-radius: 6px; text-decoration: none; display: inline-block; font-weight: bold; }
+.social-btn.instagram:hover { background: #E1306C; color: #fff; }
