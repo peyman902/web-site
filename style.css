@@ -327,3 +327,10 @@ footer {
 
 .social-btn.instagram { border: 1px solid #E1306C; color: #E1306C; }
 .social-btn.instagram:hover { background: #E1306C; color: #fff; }
+
+/* Logo Styling */
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-img { height: 48px; width: auto; object-fit: contain; border-radius: 4px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+.logo-text-group { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-pfs { color: var(--gold); font-weight: 800; font-size: 1.2rem; letter-spacing: 1px; }
+.brand-sub { color: #fff; font-size: 0.75rem; letter-spacing: 2px; opacity: 0.8; }
