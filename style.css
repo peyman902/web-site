@@ -334,3 +334,22 @@ footer {
 .logo-text-group { display: flex; flex-direction: column; line-height: 1.1; }
 .brand-pfs { color: var(--gold); font-weight: 800; font-size: 1.2rem; letter-spacing: 1px; }
 .brand-sub { color: #fff; font-size: 0.75rem; letter-spacing: 2px; opacity: 0.8; }
+
+/* Center Hero Scroll Text */
+.hero-scroll-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.hero-scroll-text h1, 
+.hero-scroll-text h2, 
+.hero-scroll-text p {
+    text-align: center;
+}
