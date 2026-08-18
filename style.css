@@ -253,3 +253,30 @@ footer {
     color: var(--text-muted);
     font-size: 0.85rem;
 }
+
+/* Global Page Headers & Multi-page CSS */
+.page-header { text-align: center; padding: 7rem 1rem 3rem; background: #0e121b; border-bottom: 1px solid var(--border-color); }
+.page-header h1 { font-size: 2.8rem; }
+.page-header p { color: var(--text-muted); margin-top: 0.5rem; }
+
+.content-container { max-width: 1100px; margin: 3rem auto; padding: 0 1.5rem; }
+
+/* Process Steps */
+.process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.process-step { background: var(--card-bg); border: 1px solid var(--border-color); padding: 1.8rem; border-radius: 8px; }
+.step-num { color: var(--gold); font-size: 1.8rem; font-weight: 900; }
+
+/* Calculator */
+.calculator-card { background: var(--card-bg); border: 1px solid var(--border-color); padding: 2.5rem; border-radius: 12px; max-width: 600px; margin: 0 auto; }
+.calc-group { margin-bottom: 1.5rem; }
+.calc-group label { display: block; margin-bottom: 0.5rem; color: var(--text-muted); }
+.calc-group input, .calc-group select { width: 100%; padding: 0.8rem; background: #0a0d14; border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 4px; }
+.calc-result { margin-top: 2rem; padding: 1.5rem; background: #0a0d14; border: 1px dashed var(--gold); border-radius: 8px; text-align: center; }
+.price-val { font-size: 2rem; font-weight: 800; margin: 0.5rem 0; }
+
+/* Blog & FAQ */
+.blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.blog-card { background: var(--card-bg); border: 1px solid var(--border-color); padding: 1.8rem; border-radius: 8px; }
+.faq-item { background: var(--card-bg); border: 1px solid var(--border-color); padding: 1.5rem; margin-bottom: 1rem; border-radius: 8px; }
+.social-btn { display: block; margin-top: 0.5rem; color: var(--gold); text-decoration: none; }
+

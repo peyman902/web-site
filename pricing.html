@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محاسبه‌گر هزینه بازسازی | PFS RENOVATE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo"><span class="brand-pfs">PFS</span> <span class="brand-sub">RENOVATE</span></div>
+        <nav>
+            <a href="index.html">خانه</a>
+            <a href="projects.html">پروژه‌ها</a>
+            <a href="services.html">خدمات</a>
+            <a href="pricing.html" class="active">برآورد هزینه</a>
+            <a href="about.html">درباره ما</a>
+            <a href="contact.html" class="nav-cta">تماس با ما</a>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>محاسبه‌گر تعاملی <span class="gold-text">هزینه بازسازی</span></h1>
+        <p>محدوده تخمینی پروژه خود را قبل از تماس آنلاین حساب کنید</p>
+    </section>
+
+    <main class="content-container">
+        <div class="calculator-card">
+            <h3>فرم برآورد آنلاین budget</h3>
+            <div class="calc-group">
+                <label>متراژ ملک (مترمربع):</label>
+                <input type="number" id="calcArea" value="100" min="20" placeholder="مثلا 120">
+            </div>
+            <div class="calc-group">
+                <label>نوع ملک:</label>
+                <select id="calcType">
+                    <option value="1">مسکونی</option>
+                    <option value="1.2">تجاری / اداری</option>
+                    <option value="1.5">ویلا</option>
+                </select>
+            </div>
+            <div class="calc-group">
+                <label>سطح متریال و اجرا:</label>
+                <select id="calcLevel">
+                    <option value="12000000">استاندارد و مدرن (متری ۱۲ میلیون)</option>
+                    <option value="20000000">لوکس و VIP (متری ۲۰ میلیون)</option>
+                    <option value="35000000">سفارشی آرت / الترا لوکس (متری ۳۵ میلیون)</option>
+                </select>
+            </div>
+            <button onclick="calculatePrice()" class="btn btn-gold btn-block">محاسبه حدود هزینه</button>
+
+            <div id="calcResult" class="calc-result" style="display:none;">
+                <h4>برآورد تخمینی پروژه شما:</h4>
+                <p id="totalPriceText" class="gold-text price-val">۰ تومان</p>
+                <span class="note">* این رقم تقریبی است؛ جهت دریافت پیش‌فاکتور دقیق مهندسی درخواست بازدید ثبت کنید.</span>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 شرکت مهندسی پاشا فرزام ساز (PFS RENOVATE)</p>
+    </footer>
+
+    <script>
+        function calculatePrice() {
+            const area = parseFloat(document.getElementById("calcArea").value) || 0;
+            const typeMultiplier = parseFloat(document.getElementById("calcType").value);
+            const basePrice = parseFloat(document.getElementById("calcLevel").value);
+
+            if (area <= 0) return alert("لطفا متراژ را درست وارد کنید");
+
+            const total = area * basePrice * typeMultiplier;
+            document.getElementById("totalPriceText").innerText = total.toLocaleString("fa-IR") + " تومان";
+            document.getElementById("calcResult").style.display = "block";
+        }
+    </script>
+</body>
+</html>
