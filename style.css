@@ -280,3 +280,16 @@ footer {
 .faq-item { background: var(--card-bg); border: 1px solid var(--border-color); padding: 1.5rem; margin-bottom: 1rem; border-radius: 8px; }
 .social-btn { display: block; margin-top: 0.5rem; color: var(--gold); text-decoration: none; }
 
+
+/* Contact Page Links & Buttons */
+.phone-link { color: var(--gold); text-decoration: none; font-weight: bold; font-size: 1.1rem; }
+.phone-link:hover { text-decoration: underline; color: #fff; }
+
+.social-btn.whatsapp { border: 1px solid #25D366; color: #25D366; padding: 0.7rem 1rem; border-radius: 6px; text-decoration: none; display: inline-block; }
+.social-btn.whatsapp:hover { background: #25D366; color: #fff; }
+
+.social-btn.bale { border: 1px solid #00a884; color: #00a884; padding: 0.7rem 1rem; border-radius: 6px; text-decoration: none; display: inline-block; }
+.social-btn.bale:hover { background: #00a884; color: #fff; }
+
+.social-btn.rubika { border: 1px solid #7d52a8; color: #7d52a8; padding: 0.7rem 1rem; border-radius: 6px; text-decoration: none; display: inline-block; }
+.social-btn.rubika:hover { background: #7d52a8; color: #fff; }
