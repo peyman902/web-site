@@ -3,56 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پیمان | توسعه‌دهنده وب</title>
+    <title>PFS RENOVATE | پاشا فرزام ساز - بازسازی تخصصی و لوکس</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="background-glow"></div>
-
+    <!-- Header / Navigation Bar -->
     <header class="navbar">
-        <div class="logo">Peyman<span>.dev</span></div>
+        <div class="logo">
+            <span class="brand-pfs">PFS</span>
+            <span class="brand-sub">RENOVATE</span>
+        </div>
         <nav>
-            <a href="#hero">خانه</a>
-            <a href="#services">خدمات</a>
-            <a href="https://github.com/peyman902" target="_blank">گیت‌هاب</a>
+            <a href="index.html" class="active">خانه</a>
+            <a href="projects.html">پروژه‌ها</a>
+            <a href="services.html">خدمات</a>
+            <a href="pricing.html">برآورد هزینه</a>
+            <a href="about.html">درباره ما / فرآیند کار</a>
+            <a href="blog.html">مقالات</a>
+            <a href="faq.html">سوالات متداول</a>
+            <a href="contact.html" class="nav-cta">تماس با ما</a>
         </nav>
     </header>
 
-    <main>
-        <section id="hero" class="hero-section">
-            <span class="badge">🚀 آماده برای پروژه‌های جدید</span>
-            <h1>خلق تجربه‌های دیجیتال <span class="gradient-text">مدرن و سریع</span></h1>
-            <p>من پیمان هستم؛ علاقه‌مند به توسعه وب، طراحی رابط کاربری و خلق ابزارهای هوشمند.</p>
-            <div class="hero-buttons">
-                <button id="mainBtn" class="btn btn-primary">ارتباط با من</button>
-                <a href="https://github.com/peyman902/web-site" target="_blank" class="btn btn-secondary">سورس پروژه</a>
+    <!-- Hero Section -->
+    <section id="video-hero" class="video-hero-container">
+        <div class="video-sticky-wrapper">
+            <video id="scrollVideo" src="hero-video.mp4" preload="auto" muted playsinline></video>
+            <div class="video-overlay"></div>
+            
+            <div class="hero-scroll-text active" id="text1">
+                <span class="hero-badge">شرکت مهندسی پاشا فرزام ساز</span>
+                <h1>تغییر، از ریشه تا <span class="gold-text">شکوه نهایی</span></h1>
             </div>
-        </section>
+            
+            <div class="hero-scroll-text" id="text2">
+                <h2>دقت در جزئیات، <span class="gold-text">معماری لوکس</span></h2>
+                <p>اجرای استانداردترین پروژه‌های بازسازی با متریال گرید A</p>
+            </div>
+            
+            <div class="hero-scroll-text" id="text3">
+                <h2>آماده تحول در فضای خود هستید؟</h2>
+                <a href="pricing.html" class="btn btn-gold">محاسبه آنلاین هزینه</a>
+            </div>
+        </div>
+    </section>
 
-        <section id="services" class="services-section">
-            <h2>مهارت‌ها و ویژگی‌ها</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-icon">⚡</div>
-                    <h3>طراحی مدرن UI/UX</h3>
-                    <p>رابط‌های کاربری شیک، پاسخگو (Responsive) و مطابق با آخرین ترندهای روز دنیا.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🛠️</div>
-                    <h3>کنترل نسخه با Git</h3>
-                    <p>مدیریت حرفه‌ای کدها و انتشار آنلاین و پرسرعت روی بستر GitHub Pages.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🤖</div>
-                    <h3>توسعه هوشمند با AI</h3>
-                    <p>استفاده از قدرت هوش مصنوعی برای افزایش سرعت و کیفیت کدنویسی.</p>
+    <!-- Stats Bar -->
+    <section class="stats-section">
+        <div class="stat-item">
+            <h2>+۱۵۰</h2>
+            <p>پروژه تکمیل‌شده</p>
+        </div>
+        <div class="stat-item">
+            <h2>۱۰۰٪</h2>
+            <p>رضایت مشتریان</p>
+        </div>
+        <div class="stat-item">
+            <h2>۱۲</h2>
+            <p>سال سابقه درخشان</p>
+        </div>
+        <div class="stat-item">
+            <h2>A+</h2>
+            <p>رتبه کیفیت اجرا</p>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="section-header">
+            <h2>پروژه‌های شاخص</h2>
+            <p>نمونه‌هایی از بازسازی‌های مدرن و لوکس توسط گروه PFS</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-img p1"></div>
+                <div class="project-info">
+                    <span class="tag">پنت‌هاوس مسکونی</span>
+                    <h3>بازسازی پنت‌هاوس نیاوران</h3>
+                    <p>طراحی مدرن، هوشمندسازی کامل و متریال وارداتی</p>
                 </div>
             </div>
-        </section>
-    </main>
+            <div class="project-card">
+                <div class="project-img p2"></div>
+                <div class="project-info">
+                    <span class="tag">تجاری / اداری</span>
+                    <h3>مجتمع تجاری فرشته</h3>
+                    <p>بازسازی دکوراسیون داخلی و معماری مدرن نما</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img p3"></div>
+                <div class="project-info">
+                    <span class="tag">ویلا مدرن</span>
+                    <h3>بازسازی ویلای لواسان</h3>
+                    <p>معماری مدرن، لنداسکیپ و استخر شیشه‌ای</p>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 2.5rem;">
+            <a href="projects.html" class="btn btn-gold">مشاهده همه پروژه‌ها</a>
+        </div>
+    </section>
 
+    <!-- Footer -->
     <footer>
-        <p>© 2026 طراحی و توسعه داده شده توسط پیمان</p>
+        <p>© 2026 شرکت مهندسی پاشا فرزام ساز (PFS RENOVATE) | <a href="terms.html" style="color: var(--gold);">قوانین و گارانتی</a> | <a href="contact.html" style="color: var(--gold);">تماس با ما</a></p>
     </footer>
 
     <script src="script.js"></script>
