@@ -310,3 +310,20 @@ footer {
 /* Instagram Button Style */
 .social-btn.instagram { border: 1px solid #E1306C; color: #E1306C; padding: 0.7rem 1rem; border-radius: 6px; text-decoration: none; display: inline-block; font-weight: bold; }
 .social-btn.instagram:hover { background: #E1306C; color: #fff; }
+
+/* Contact Icons & Social Button Styling */
+.contact-icon { color: var(--gold); margin-left: 8px; font-size: 1.1rem; width: 20px; text-align: center; }
+.icon-large { margin-left: 8px; font-size: 1.2rem; vertical-align: middle; }
+
+.social-btn { display: flex; align-items: center; justify-content: flex-start; padding: 0.8rem 1.2rem; border-radius: 8px; font-weight: bold; transition: all 0.3s ease; }
+.social-btn.whatsapp { border: 1px solid #25D366; color: #25D366; }
+.social-btn.whatsapp:hover { background: #25D366; color: #fff; }
+
+.social-btn.bale { border: 1px solid #00a884; color: #00a884; }
+.social-btn.bale:hover { background: #00a884; color: #fff; }
+
+.social-btn.rubika { border: 1px solid #7d52a8; color: #7d52a8; }
+.social-btn.rubika:hover { background: #7d52a8; color: #fff; }
+
+.social-btn.instagram { border: 1px solid #E1306C; color: #E1306C; }
+.social-btn.instagram:hover { background: #E1306C; color: #fff; }
