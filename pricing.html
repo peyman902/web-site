@@ -136,8 +136,41 @@ function sendBaleMessage() {
     });
 }
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var forms = document.querySelectorAll('form');
+    forms.forEach(function(form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var nameInput = form.querySelector('input[type="text"], input[placeholder*="Name"], input[name*="name"]');
+            var emailInput = form.querySelector('input[type="email"], input[placeholder*="Email"], input[name*="email"]');
+            var msgInput = form.querySelector('textarea, input[placeholder*="needs"], input[placeholder*="Message"]');
+            
+            var payload = {
+                name: nameInput ? nameInput.value : '',
+                email: emailInput ? emailInput.value : '',
+                message: msgInput ? msgInput.value : ''
+            };
+
+            fetch('https://script.google.com/macros/s/AKfycbwUj22yUf5vNnb3u6G1IDN3ITL18D98oaF4xsfQdGQ8CERQ_Zeyg3j3QmyUySCHCbbgFw/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).then(function() {
+                alert('✅ پیام شما با موفقیت ارسال شد!');
+                form.reset();
+            }).catch(function(err) {
+                alert('خطا در ارسال پیام. لطفاً مجدداً تلاش کنید.');
+            });
+        });
+    });
+});
+</script>
 </body>
 </html>
+
 
 
 
