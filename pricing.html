@@ -90,50 +90,81 @@ body.light-mode a {
 }
 </style>
 
+
+<!-- Floating Contact & Chat Buttons -->
+<div style="position: fixed; bottom: 25px; left: 25px; z-index: 9999; display: flex; flex-direction: column; gap: 12px; align-items: center;">
+    
+    <!-- Phone Call Button -->
+    <a href="tel:09124354112" title="تماس تلفنی مستقیم" style="background: #25d366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(0,0,0,0.4); transition: transform 0.3s ease;">
+        <i class="fa-solid fa-phone" style="font-size: 1.5rem;"></i>
+    </a>
+
+    <!-- Live Chat Button -->
+    <div id="chat-icon" onclick="toggleChatBox()" title="چت آنلاین" style="background: #0088cc; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.4); transition: transform 0.3s ease;">
+        <i class="fa-solid fa-comments" style="font-size: 1.6rem;"></i>
+    </div>
+
+</div>
+
+<!-- Chat Box Modal -->
+<div id="chat-box" style="display: none; position: fixed; bottom: 105px; left: 25px; z-index: 9999; width: 320px; background: #131924; border: 1px solid #d4af37; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); font-family: inherit; overflow: hidden;">
+    <div style="background: #1c2433; padding: 12px 15px; color: #fff; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212,175,55,0.3);">
+        <span style="font-weight: bold; font-size: 0.95rem;">💬 پشتیبانی آنلاین PFS</span>
+        <span onclick="toggleChatBox()" style="cursor: pointer; color: #aaa; font-size: 1.2rem;">&times;</span>
+    </div>
+    <div style="padding: 15px;">
+        <p style="color: #ccc; font-size: 0.85rem; margin-bottom: 12px;">پیام شما مستقیماً به بله ارسال می‌شود:</p>
+        <input type="text" id="chat-user-name" placeholder="نام شما" style="width: 100%; padding: 8px; margin-bottom: 8px; border-radius: 6px; border: 1px solid #333; background: #0f131d; color: #fff; font-family: inherit;">
+        <input type="tel" id="chat-user-phone" placeholder="شماره تماس" style="width: 100%; padding: 8px; margin-bottom: 8px; border-radius: 6px; border: 1px solid #333; background: #0f131d; color: #fff; font-family: inherit;">
+        <textarea id="chat-user-msg" placeholder="پیام شما..." rows="3" style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 6px; border: 1px solid #333; background: #0f131d; color: #fff; font-family: inherit; resize: none;"></textarea>
+        <button onclick="sendBaleMessageFromWidget()" style="width: 100%; background: #d4af37; color: #000; font-weight: bold; padding: 9px; border: none; border-radius: 6px; cursor: pointer;">ارسال پیام</button>
+        <p id="chat-status" style="color: #4caf50; font-size: 0.8rem; margin-top: 8px; text-align: center; display: none;">✅ پیام شما با موفقیت ارسال شد!</p>
+    </div>
+</div>
+
 <script>
-function applyTheme(isLight) {
-    var icon = document.getElementById('theme-icon');
-    if (isLight) {
-        document.body.classList.add('light-mode');
-        if(icon) icon.className = 'fa-solid fa-sun';
-    } else {
-        document.body.classList.remove('light-mode');
-        if(icon) icon.className = 'fa-solid fa-moon';
+function toggleChatBox() {
+    var box = document.getElementById('chat-box');
+    if (box) {
+        box.style.display = (box.style.display === 'none' || box.style.display === '') ? 'block' : 'none';
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Check temporary selection for current tab session only
-    var sessionOverride = sessionStorage.getItem('theme_session'); // 'light' or 'dark'
-    
-    if (sessionOverride) {
-        // Apply user choice as long as the session/tab is open
-        applyTheme(sessionOverride === 'light');
-    } else {
-        // Automatic logic based on system/device time (6 AM to 6 PM is Day)
-        var currentHour = new Date().getHours();
-        var isDaytime = currentHour >= 6 && currentHour < 18;
-        applyTheme(isDaytime);
-    }
-});
+function sendBaleMessageFromWidget() {
+    var name = document.getElementById('chat-user-name').value;
+    var phone = document.getElementById('chat-user-phone').value;
+    var msg = document.getElementById('chat-user-msg').value;
+    var status = document.getElementById('chat-status');
 
-function toggleThemeManual() {
-    var isCurrentlyLight = document.body.classList.contains('light-mode');
-    var newThemeIsLight = !isCurrentlyLight;
-    
-    applyTheme(newThemeIsLight);
-    
-    // Save preference only for the current active tab session
-    sessionStorage.setItem('theme_session', newThemeIsLight ? 'light' : 'dark');
+    if(!name || !msg) { alert('لطفاً نام و پیام خود را وارد کنید.'); return; }
+
+    var payload = {
+        name: name,
+        email: phone,
+        message: msg
+    };
+
+    fetch('https://script.google.com/macros/s/AKfycbwUj22yUf5vNnb3u6G1IDN3ITL18D98oaF4xsfQdGQ8CERQ_Zeyg3j3QmyUySCHCbbgFw/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    }).then(function() {
+        if (status) status.style.display = 'block';
+        document.getElementById('chat-user-msg').value = '';
+        setTimeout(function() { 
+            if (status) status.style.display = 'none'; 
+            toggleChatBox(); 
+        }, 2000);
+    }).catch(function(err) {
+        alert('خطا در ارسال پیام. لطفاً دوباره تلاش کنید.');
+    });
 }
-</script>
-<script>
+
+// Connect main contact forms safely
 window.addEventListener('DOMContentLoaded', function() {
-    // Safely handle all forms
     var forms = document.forms;
-    if (!forms || forms.length === 0) {
-        forms = document.querySelectorAll('form');
-    }
+    if (!forms || forms.length === 0) forms = document.querySelectorAll('form');
 
     Array.from(forms).forEach(function(form) {
         if (!form) return;
@@ -168,6 +199,7 @@ window.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
 
 
 

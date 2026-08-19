@@ -68,6 +68,8 @@
     </footer>
 
 
+
+
 <!-- Floating Contact & Chat Buttons -->
 <div style="position: fixed; bottom: 25px; left: 25px; z-index: 9999; display: flex; flex-direction: column; gap: 12px; align-items: center;">
     
@@ -76,7 +78,7 @@
         <i class="fa-solid fa-phone" style="font-size: 1.5rem;"></i>
     </a>
 
-    <!-- Bale Chat Button -->
+    <!-- Live Chat Button -->
     <div id="chat-icon" onclick="toggleChatBox()" title="چت آنلاین" style="background: #0088cc; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.4); transition: transform 0.3s ease;">
         <i class="fa-solid fa-comments" style="font-size: 1.6rem;"></i>
     </div>
@@ -94,84 +96,54 @@
         <input type="text" id="chat-user-name" placeholder="نام شما" style="width: 100%; padding: 8px; margin-bottom: 8px; border-radius: 6px; border: 1px solid #333; background: #0f131d; color: #fff; font-family: inherit;">
         <input type="tel" id="chat-user-phone" placeholder="شماره تماس" style="width: 100%; padding: 8px; margin-bottom: 8px; border-radius: 6px; border: 1px solid #333; background: #0f131d; color: #fff; font-family: inherit;">
         <textarea id="chat-user-msg" placeholder="پیام شما..." rows="3" style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 6px; border: 1px solid #333; background: #0f131d; color: #fff; font-family: inherit; resize: none;"></textarea>
-        <button onclick="sendBaleMessage()" style="width: 100%; background: #d4af37; color: #000; font-weight: bold; padding: 9px; border: none; border-radius: 6px; cursor: pointer;">ارسال پیام</button>
+        <button onclick="sendBaleMessageFromWidget()" style="width: 100%; background: #d4af37; color: #000; font-weight: bold; padding: 9px; border: none; border-radius: 6px; cursor: pointer;">ارسال پیام</button>
         <p id="chat-status" style="color: #4caf50; font-size: 0.8rem; margin-top: 8px; text-align: center; display: none;">✅ پیام شما با موفقیت ارسال شد!</p>
     </div>
 </div>
 
-
-
-
-
-<!-- Top Fixed Theme Toggle (Session-based Day/Night) -->
-<div id="theme-toggle-btn" onclick="toggleThemeManual()" title="تغییر حالت روز و شب" style="position: fixed; top: 15px; right: 20px; z-index: 10000; background: rgba(19, 25, 36, 0.9); color: #d4af37; border: 1px solid #d4af37; border-radius: 50%; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.4); backdrop-filter: blur(5px); transition: transform 0.2s ease;">
-    <i id="theme-icon" class="fa-solid fa-moon" style="font-size: 1.1rem;"></i>
-</div>
-
-<style>
-/* Light Mode Styling Overrides */
-body.light-mode {
-    background-color: #f8f9fa !important;
-    color: #1a1a1a !important;
-}
-body.light-mode header, 
-body.light-mode nav, 
-body.light-mode .card,
-body.light-mode .service-item,
-body.light-mode section {
-    background-color: #ffffff !important;
-    color: #222222 !important;
-    border-color: #e0e0e0 !important;
-}
-body.light-mode a {
-    color: #0066cc !important;
-}
-</style>
-
 <script>
-function applyTheme(isLight) {
-    var icon = document.getElementById('theme-icon');
-    if (isLight) {
-        document.body.classList.add('light-mode');
-        if(icon) icon.className = 'fa-solid fa-sun';
-    } else {
-        document.body.classList.remove('light-mode');
-        if(icon) icon.className = 'fa-solid fa-moon';
+function toggleChatBox() {
+    var box = document.getElementById('chat-box');
+    if (box) {
+        box.style.display = (box.style.display === 'none' || box.style.display === '') ? 'block' : 'none';
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Check temporary selection for current tab session only
-    var sessionOverride = sessionStorage.getItem('theme_session'); // 'light' or 'dark'
-    
-    if (sessionOverride) {
-        // Apply user choice as long as the session/tab is open
-        applyTheme(sessionOverride === 'light');
-    } else {
-        // Automatic logic based on system/device time (6 AM to 6 PM is Day)
-        var currentHour = new Date().getHours();
-        var isDaytime = currentHour >= 6 && currentHour < 18;
-        applyTheme(isDaytime);
-    }
-});
+function sendBaleMessageFromWidget() {
+    var name = document.getElementById('chat-user-name').value;
+    var phone = document.getElementById('chat-user-phone').value;
+    var msg = document.getElementById('chat-user-msg').value;
+    var status = document.getElementById('chat-status');
 
-function toggleThemeManual() {
-    var isCurrentlyLight = document.body.classList.contains('light-mode');
-    var newThemeIsLight = !isCurrentlyLight;
-    
-    applyTheme(newThemeIsLight);
-    
-    // Save preference only for the current active tab session
-    sessionStorage.setItem('theme_session', newThemeIsLight ? 'light' : 'dark');
+    if(!name || !msg) { alert('لطفاً نام و پیام خود را وارد کنید.'); return; }
+
+    var payload = {
+        name: name,
+        email: phone,
+        message: msg
+    };
+
+    fetch('https://script.google.com/macros/s/AKfycbwUj22yUf5vNnb3u6G1IDN3ITL18D98oaF4xsfQdGQ8CERQ_Zeyg3j3QmyUySCHCbbgFw/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    }).then(function() {
+        if (status) status.style.display = 'block';
+        document.getElementById('chat-user-msg').value = '';
+        setTimeout(function() { 
+            if (status) status.style.display = 'none'; 
+            toggleChatBox(); 
+        }, 2000);
+    }).catch(function(err) {
+        alert('خطا در ارسال پیام. لطفاً دوباره تلاش کنید.');
+    });
 }
-</script>
-<script>
+
+// Connect main contact forms safely
 window.addEventListener('DOMContentLoaded', function() {
-    // Safely handle all forms
     var forms = document.forms;
-    if (!forms || forms.length === 0) {
-        forms = document.querySelectorAll('form');
-    }
+    if (!forms || forms.length === 0) forms = document.querySelectorAll('form');
 
     Array.from(forms).forEach(function(form) {
         if (!form) return;
@@ -206,6 +178,7 @@ window.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
 
 
 
