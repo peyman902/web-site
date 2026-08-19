@@ -11,18 +11,57 @@
     <h2>صفحه مورد نظر شما پیدا نشد!</h2>
     <p style="color: #94a3b8; margin: 1.5rem 0;">ممکن است آدرس را اشتباه وارد کرده باشید یا صفحه منتقل شده باشد.</p>
     <a href="index.html" class="btn btn-gold">بازگشت به صفحه اصلی</a>
-<!-- Floating Chat Widget -->
-<div id="floating-chat-btn" onclick="openChat()" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999; background: #0088cc; color: white; padding: 12px 18px; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 8px; font-family: inherit;">
-    <i class="fa-solid fa-comments" style="font-size: 1.2rem;"></i>
-    <span style="font-weight: bold; font-size: 0.9rem;">پشتیبانی آنلاین</span>
+
+<!-- Advanced Floating Chat Box -->
+<div id="chat-icon" onclick="toggleChatBox()" style="position: fixed; bottom: 25px; left: 25px; z-index: 9999; background: #0088cc; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.4);">
+    <i class="fa-solid fa-comments" style="font-size: 1.6rem;"></i>
+</div>
+
+<div id="chat-box" style="display: none; position: fixed; bottom: 95px; left: 25px; z-index: 9999; width: 320px; background: #131924; border: 1px solid #d4af37; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); font-family: inherit; overflow: hidden;">
+    <div style="background: #1c2433; padding: 12px 15px; color: #fff; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212,175,55,0.3);">
+        <span style="font-weight: bold; font-size: 0.95rem;">💬 پشتیبانی آنلاین PFS</span>
+        <span onclick="toggleChatBox()" style="cursor: pointer; color: #aaa; font-size: 1.2rem;">&times;</span>
+    </div>
+    <div style="padding: 15px;">
+        <p style="color: #ccc; font-size: 0.85rem; margin-bottom: 12px;">پیام شما مستقیماً به کارشناسان ما ارسال می‌شود:</p>
+        <input type="text" id="chat-user-name" placeholder="نام شما" style="width: 100%; padding: 8px; margin-bottom: 8px; border-radius: 6px; border: 1px solid #333; background: #0f131d; color: #fff; font-family: inherit;">
+        <input type="tel" id="chat-user-phone" placeholder="شماره تماس" style="width: 100%; padding: 8px; margin-bottom: 8px; border-radius: 6px; border: 1px solid #333; background: #0f131d; color: #fff; font-family: inherit;">
+        <textarea id="chat-user-msg" placeholder="پیام شما..." rows="3" style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 6px; border: 1px solid #333; background: #0f131d; color: #fff; font-family: inherit; resize: none;"></textarea>
+        <button onclick="sendBaleMessage()" style="width: 100%; background: #d4af37; color: #000; font-weight: bold; padding: 9px; border: none; border-radius: 6px; cursor: pointer;">ارسال پیام</button>
+        <p id="chat-status" style="color: #4caf50; font-size: 0.8rem; margin-top: 8px; text-align: center; display: none;">✅ پیام شما با موفقیت ارسال شد!</p>
+    </div>
 </div>
 
 <script>
-function openChat() {
-    // لینک اتصال به بله یا باز شدن پنجره چت
-    window.open('https://ble.ir/peyman9021civil', '_blank');
+function toggleChatBox() {
+    var box = document.getElementById('chat-box');
+    box.style.display = (box.style.display === 'none' || box.style.display === '') ? 'block' : 'none';
+}
+
+function sendBaleMessage() {
+    var name = document.getElementById('chat-user-name').value;
+    var phone = document.getElementById('chat-user-phone').value;
+    var msg = document.getElementById('chat-user-msg').value;
+    var status = document.getElementById('chat-status');
+
+    if(!name || !msg) { alert('لطفاً نام و پیام خود را وارد کنید.'); return; }
+
+    var text = "📩 پیام جدید از چت آنلاین سایت:\n👤 نام: " + name + "\n📞 تلفن: " + phone + "\n💬 متن پیام: " + msg;
+    
+    fetch('https://tapi.bale.ai/bot1334221543:NcjsdXPPeKJmkydP-qt-UhJTWey_eaf4L8s/sendMessage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: "1048377804", text: text })
+    }).then(response => {
+        status.style.display = 'block';
+        document.getElementById('chat-user-msg').value = '';
+        setTimeout(() => { status.style.display = 'none'; toggleChatBox(); }, 2500);
+    }).catch(err => {
+        alert('خطا در ارسال پیام. لطفاً دوباره تلاش کنید.');
+    });
 }
 </script>
 </body>
 </html>
+
 
