@@ -47,18 +47,30 @@
         <p>© 2026 شرکت مهندسی پاشا فرزام ساز (PFS RENOVATE)</p>
     </footer>
 
-<!-- Advanced Floating Chat Box -->
-<div id="chat-icon" onclick="toggleChatBox()" style="position: fixed; bottom: 25px; left: 25px; z-index: 9999; background: #0088cc; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.4);">
-    <i class="fa-solid fa-comments" style="font-size: 1.6rem;"></i>
+
+<!-- Floating Contact & Chat Buttons -->
+<div style="position: fixed; bottom: 25px; left: 25px; z-index: 9999; display: flex; flex-direction: column; gap: 12px; align-items: center;">
+    
+    <!-- Phone Call Button -->
+    <a href="tel:09124354112" title="تماس تلفنی مستقیم" style="background: #25d366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(0,0,0,0.4); transition: transform 0.3s ease;">
+        <i class="fa-solid fa-phone" style="font-size: 1.5rem;"></i>
+    </a>
+
+    <!-- Bale Chat Button -->
+    <div id="chat-icon" onclick="toggleChatBox()" title="چت آنلاین" style="background: #0088cc; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.4); transition: transform 0.3s ease;">
+        <i class="fa-solid fa-comments" style="font-size: 1.6rem;"></i>
+    </div>
+
 </div>
 
-<div id="chat-box" style="display: none; position: fixed; bottom: 95px; left: 25px; z-index: 9999; width: 320px; background: #131924; border: 1px solid #d4af37; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); font-family: inherit; overflow: hidden;">
+<!-- Chat Box Modal -->
+<div id="chat-box" style="display: none; position: fixed; bottom: 105px; left: 25px; z-index: 9999; width: 320px; background: #131924; border: 1px solid #d4af37; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); font-family: inherit; overflow: hidden;">
     <div style="background: #1c2433; padding: 12px 15px; color: #fff; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212,175,55,0.3);">
         <span style="font-weight: bold; font-size: 0.95rem;">💬 پشتیبانی آنلاین PFS</span>
         <span onclick="toggleChatBox()" style="cursor: pointer; color: #aaa; font-size: 1.2rem;">&times;</span>
     </div>
     <div style="padding: 15px;">
-        <p style="color: #ccc; font-size: 0.85rem; margin-bottom: 12px;">پیام شما مستقیماً به کارشناسان ما ارسال می‌شود:</p>
+        <p style="color: #ccc; font-size: 0.85rem; margin-bottom: 12px;">پیام شما مستقیماً به بله ارسال می‌شود:</p>
         <input type="text" id="chat-user-name" placeholder="نام شما" style="width: 100%; padding: 8px; margin-bottom: 8px; border-radius: 6px; border: 1px solid #333; background: #0f131d; color: #fff; font-family: inherit;">
         <input type="tel" id="chat-user-phone" placeholder="شماره تماس" style="width: 100%; padding: 8px; margin-bottom: 8px; border-radius: 6px; border: 1px solid #333; background: #0f131d; color: #fff; font-family: inherit;">
         <textarea id="chat-user-msg" placeholder="پیام شما..." rows="3" style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 6px; border: 1px solid #333; background: #0f131d; color: #fff; font-family: inherit; resize: none;"></textarea>
@@ -98,5 +110,6 @@ function sendBaleMessage() {
 </script>
 </body>
 </html>
+
 
 
