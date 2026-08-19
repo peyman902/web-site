@@ -299,8 +299,79 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<!-- Language Selector Dropdown with Flags -->
+<div id="language-selector" style="position: fixed; top: 15px; left: 20px; z-index: 10000;">
+    <div class="lang-dropdown" style="position: relative; display: inline-block;">
+        <button id="lang-btn" onclick="toggleLangMenu()" style="background: rgba(19, 25, 36, 0.9); color: #d4af37; border: 1px solid #d4af37; border-radius: 20px; padding: 6px 14px; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 8px; backdrop-filter: blur(5px); box-shadow: 0 4px 15px rgba(0,0,0,0.4); font-family: inherit;">
+            <img id="current-flag" src="https://flagcdn.com/w40/ir.png" alt="FA" style="width: 20px; height: 14px; border-radius: 2px; object-fit: cover;">
+            <span id="current-lang-text">فارسی</span>
+            <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i>
+        </button>
+        <div id="lang-menu" style="display: none; position: absolute; top: 110%; left: 0; background: #131924; border: 1px solid rgba(212,175,55,0.4); border-radius: 8px; min-width: 140px; box-shadow: 0 8px 20px rgba(0,0,0,0.5); overflow: hidden; z-index: 10001;">
+            <div onclick="changeLanguage('fa', 'فارسی', 'https://flagcdn.com/w40/ir.png')" style="padding: 10px 12px; color: #fff; display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.05); transition: background 0.2s;" onmouseover="this.style.background='#1c2433'" onmouseout="this.style.background='transparent'">
+                <img src="https://flagcdn.com/w40/ir.png" alt="FA" style="width: 20px; height: 14px; border-radius: 2px;">
+                <span>فارسی</span>
+            </div>
+            <div onclick="changeLanguage('en', 'English', 'https://flagcdn.com/w40/gb.png')" style="padding: 10px 12px; color: #fff; display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.05); transition: background 0.2s;" onmouseover="this.style.background='#1c2433'" onmouseout="this.style.background='transparent'">
+                <img src="https://flagcdn.com/w40/gb.png" alt="EN" style="width: 20px; height: 14px; border-radius: 2px;">
+                <span>English</span>
+            </div>
+            <div onclick="changeLanguage('ar', 'العربية', 'https://flagcdn.com/w40/sa.png')" style="padding: 10px 12px; color: #fff; display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.85rem; transition: background 0.2s;" onmouseover="this.style.background='#1c2433'" onmouseout="this.style.background='transparent'">
+                <img src="https://flagcdn.com/w40/sa.png" alt="AR" style="width: 20px; height: 14px; border-radius: 2px;">
+                <span>العربية</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Hidden Google Translate Element -->
+<div id="google_translate_element" style="display:none;"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'fa',
+        includedLanguages: 'fa,en,ar',
+        autoDisplay: false
+    }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+function toggleLangMenu() {
+    var menu = document.getElementById('lang-menu');
+    if (menu) {
+        menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'block' : 'none';
+    }
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', function(e) {
+    var container = document.getElementById('language-selector');
+    var menu = document.getElementById('lang-menu');
+    if (container && !container.contains(e.target) && menu) {
+        menu.style.display = 'none';
+    }
+});
+
+function changeLanguage(langCode, langName, flagUrl) {
+    // Update button text and flag
+    document.getElementById('current-lang-text').innerText = langName;
+    document.getElementById('current-flag').src = flagUrl;
+    document.getElementById('lang-menu').style.display = 'none';
+
+    // Trigger Google Translate select element
+    var gtCombo = document.querySelector('.goog-te-combo');
+    if (gtCombo) {
+        gtCombo.value = langCode;
+        gtCombo.dispatchEvent(new Event('change'));
+    }
+}
+</script>
 </body>
 </html>
+
 
 
 
