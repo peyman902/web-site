@@ -44,67 +44,7 @@
     </div>
 </div>
 
-<script>
-function toggleChatBox() {
-    var box = document.getElementById('chat-box');
-    box.style.display = (box.style.display === 'none' || box.style.display === '') ? 'block' : 'none';
-}
 
-function sendBaleMessage() {
-    var name = document.getElementById('chat-user-name').value;
-    var phone = document.getElementById('chat-user-phone').value;
-    var msg = document.getElementById('chat-user-msg').value;
-    var status = document.getElementById('chat-status');
-
-    if(!name || !msg) { alert('لطفاً نام و پیام خود را وارد کنید.'); return; }
-
-    var text = "📩 پیام جدید از چت آنلاین سایت:\n👤 نام: " + name + "\n📞 تلفن: " + phone + "\n💬 متن پیام: " + msg;
-    
-    fetch('https://tapi.bale.ai/bot1334221543:NcjsdXPPeKJmkydP-qt-UhJTWey_eaf4L8s/sendMessage', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: "1048377804", text: text })
-    }).then(response => {
-        status.style.display = 'block';
-        document.getElementById('chat-user-msg').value = '';
-        setTimeout(() => { status.style.display = 'none'; toggleChatBox(); }, 2500);
-    }).catch(err => {
-        alert('خطا در ارسال پیام. لطفاً دوباره تلاش کنید.');
-    });
-}
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var forms = document.querySelectorAll('form');
-    forms.forEach(function(form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            var nameInput = form.querySelector('input[type="text"], input[placeholder*="Name"], input[name*="name"]');
-            var emailInput = form.querySelector('input[type="email"], input[placeholder*="Email"], input[name*="email"]');
-            var msgInput = form.querySelector('textarea, input[placeholder*="needs"], input[placeholder*="Message"]');
-            
-            var payload = {
-                name: nameInput ? nameInput.value : '',
-                email: emailInput ? emailInput.value : '',
-                message: msgInput ? msgInput.value : ''
-            };
-
-            fetch('https://script.google.com/macros/s/AKfycbwUj22yUf5vNnb3u6G1IDN3ITL18D98oaF4xsfQdGQ8CERQ_Zeyg3j3QmyUySCHCbbgFw/exec', {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            }).then(function() {
-                alert('✅ پیام شما با موفقیت ارسال شد!');
-                form.reset();
-            }).catch(function(err) {
-                alert('خطا در ارسال پیام. لطفاً مجدداً تلاش کنید.');
-            });
-        });
-    });
-});
-</script>
 
 
 
@@ -170,8 +110,48 @@ function toggleThemeManual() {
     sessionStorage.setItem('theme_session', newThemeIsLight ? 'light' : 'dark');
 }
 </script>
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+    // Safely handle all forms
+    var forms = document.forms;
+    if (!forms || forms.length === 0) {
+        forms = document.querySelectorAll('form');
+    }
+
+    Array.from(forms).forEach(function(form) {
+        if (!form) return;
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var nameInput = form.querySelector('input[type="text"], input[name*="name"], input[placeholder*="Name"], input[placeholder*="نام"]');
+            var emailInput = form.querySelector('input[type="email"], input[type="tel"], input[name*="email"], input[placeholder*="Email"], input[placeholder*="ایمیل"]');
+            var msgInput = form.querySelector('textarea, input[name*="message"], input[placeholder*="needs"], input[placeholder*="پیام"]');
+            
+            var payload = {
+                name: nameInput ? nameInput.value : '',
+                email: emailInput ? emailInput.value : '',
+                message: msgInput ? msgInput.value : ''
+            };
+
+            fetch('https://script.google.com/macros/s/AKfycbwUj22yUf5vNnb3u6G1IDN3ITL18D98oaF4xsfQdGQ8CERQ_Zeyg3j3QmyUySCHCbbgFw/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).then(function() {
+                alert('✅ پیام شما با موفقیت ارسال شد!');
+                form.reset();
+            }).catch(function(err) {
+                alert('خطا در ارسال پیام. لطفاً دوباره تلاش کنید.');
+            });
+        });
+    });
+});
+</script>
 </body>
 </html>
+
 
 
 
