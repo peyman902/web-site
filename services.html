@@ -36,7 +36,7 @@
             <div class="process-step">
                 <span class="step-num"><i class="fa-solid fa-house-chimney-crack"></i></span>
                 <h3>بازسازی صفر تا صد مسکونی</h3>
-                <p>تخریب اصولی، تعویض کامل تأسیسات، اجرای کف‌پوش، سقف کاذب، نقاشی تخصصی و نصب متریال لوکس.</p>
+                <p>تخریب اصولی، تعویض کامل تأسیسات، اجرای کف‌پوش، سقف کاذب، نقاشی تخصصی و نصب متریال لوکس و VIP.</p>
             </div>
             <div class="process-step">
                 <span class="step-num"><i class="fa-solid fa-compass-drafting"></i></span>
@@ -60,8 +60,8 @@
             </div>
             <div class="process-step">
                 <span class="step-num"><i class="fa-solid fa-briefcase"></i></span>
-                <h3>دکوراسیون تجاری و اداری</h3>
-                <p>بهینه‌سازی فضای کاری، طراحی شوروم‌های تجاری و دفاتر اداری VIP طبق هویت بصری برند شما.</p>
+                <h3>دکوراسیون سازندگان و اداری</h3>
+                <p>بهینه‌سازی فضای کاری، طراحی شوروم‌های سازندگان و دفاتر اداری لوکس و VIP طبق هویت بصری برند شما.</p>
             </div>
         </div>
     </main>
@@ -181,8 +181,26 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+<!-- Cost Estimation Section Replacement -->
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+    var estimatorSection = document.querySelector('#calculator, .calculator, #estimation, .estimation-section');
+    
+    // Auto-update price package labels if form select/buttons exist
+    var packageSelects = document.querySelectorAll('select[name*="package"], select[name*="plan"], select[id*="package"]');
+    packageSelects.forEach(function(select) {
+        select.innerHTML = 
+            <option value="economic">اقتصادی</option>
+            <option value="builders">سازندگان</option>
+            <option value="luxury">لوکس و VIP</option>
+            <option value="ultra">سفارشی آرت / الترا لوکس</option>
+        ;
+    });
+});
+</script>
 </body>
 </html>
+
 
 
 

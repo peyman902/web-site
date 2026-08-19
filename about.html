@@ -28,13 +28,13 @@
 
     <section class="page-header">
         <h1>درباره گروه مهندسی <span class="gold-text">پاشا فرزام ساز</span></h1>
-        <p>بیش از یک دهه درخشش در حوزه بازسازی لوکس و معماری داخلی</p>
+        <p>بیش از یک دهه درخشش در حوزه بازسازی لوکس و VIP و معماری داخلی</p>
     </section>
 
     <main class="content-container">
         <div style="max-width: 900px; margin: 0 auto; line-height: 2; color: #cbd5e1; text-align: justify;">
             <p style="font-size: 1.1rem; margin-bottom: 2rem;">
-                گروه مهندسی <strong>پاشا فرزام ساز (PFS RENOVATE)</strong> با هدف ارتقای سطح کیفی فضاهای زندگی و کاری، فعالیت خود را آغاز نموده است. ما با بهره‌گیری از مجرب‌ترین مهندسان معماری، عمران و متخصصان اجرای دکوراسیون، پروژه‌های بازسازی را با بالاترین استانداردهای کیفی، شفافیت مالی و طبق جدول زمان‌بندی دقیق به سرانجام می‌رسانیم.
+                گروه مهندسی <strong>پاشا فرزام ساز (PFS RENOVATE)</strong> با هدف ارتقای سطح کیفی فضاهای زندگی و کاری، فعالیت خود را آغاز نموده است. ما با بهره‌گیری از مجرب‌ترین مهندسان معماری، عمران و متخصصان اجرای دکوراسیون، پروژه‌های بازسازی را با بالاترین سازندگانهای کیفی، شفافیت مالی و طبق جدول زمان‌بندی دقیق به سرانجام می‌رسانیم.
             </p>
 
             <h2 style="color: #fff; border-right: 4px solid var(--gold); padding-right: 12px; margin: 3rem 0 1.5rem;">فرآیند ۴ گام اجرای پروژه در PFS</h2>
@@ -178,8 +178,26 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+<!-- Cost Estimation Section Replacement -->
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+    var estimatorSection = document.querySelector('#calculator, .calculator, #estimation, .estimation-section');
+    
+    // Auto-update price package labels if form select/buttons exist
+    var packageSelects = document.querySelectorAll('select[name*="package"], select[name*="plan"], select[id*="package"]');
+    packageSelects.forEach(function(select) {
+        select.innerHTML = 
+            <option value="economic">اقتصادی</option>
+            <option value="builders">سازندگان</option>
+            <option value="luxury">لوکس و VIP</option>
+            <option value="ultra">سفارشی آرت / الترا لوکس</option>
+        ;
+    });
+});
+</script>
 </body>
 </html>
+
 
 
 

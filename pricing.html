@@ -35,16 +35,16 @@
                 <label>نوع ملک:</label>
                 <select id="calcType">
                     <option value="1">مسکونی</option>
-                    <option value="1.2">تجاری / اداری</option>
+                    <option value="1.2">سازندگان / اداری</option>
                     <option value="1.5">ویلا</option>
                 </select>
             </div>
             <div class="calc-group">
                 <label>سطح متریال و اجرا:</label>
                 <select id="calcLevel">
-                    <option value="12000000">استاندارد و مدرن (متری ۱۲ میلیون)</option>
-                    <option value="20000000">لوکس و VIP (متری ۲۰ میلیون)</option>
-                    <option value="35000000">سفارشی آرت / الترا لوکس (متری ۳۵ میلیون)</option>
+                    <option value="12000000">سازندگان و مدرن (متری ۱۲ میلیون)</option>
+                    <option value="20000000">لوکس و VIP و لوکس و VIP (متری ۲۰ میلیون)</option>
+                    <option value="35000000">سفارشی آرت / الترا لوکس آرت / سفارشی آرت / الترا لوکس و VIP (متری ۳۵ میلیون)</option>
                 </select>
             </div>
             <button onclick="calculatePrice()" class="btn btn-gold btn-block">محاسبه حدود هزینه</button>
@@ -199,8 +199,26 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+<!-- Cost Estimation Section Replacement -->
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+    var estimatorSection = document.querySelector('#calculator, .calculator, #estimation, .estimation-section');
+    
+    // Auto-update price package labels if form select/buttons exist
+    var packageSelects = document.querySelectorAll('select[name*="package"], select[name*="plan"], select[id*="package"]');
+    packageSelects.forEach(function(select) {
+        select.innerHTML = 
+            <option value="economic">اقتصادی</option>
+            <option value="builders">سازندگان</option>
+            <option value="luxury">لوکس و VIP</option>
+            <option value="ultra">سفارشی آرت / الترا لوکس</option>
+        ;
+    });
+});
+</script>
 </body>
 </html>
+
 
 
 

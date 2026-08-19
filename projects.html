@@ -28,7 +28,7 @@
 
     <section class="page-header">
         <h1>گالری <span class="gold-text">پروژه‌های شاخص</span></h1>
-        <p>نمونه‌هایی از بازسازی‌های فاخر و لوکس توسط گروه مهندسی PFS</p>
+        <p>نمونه‌هایی از بازسازی‌های فاخر و لوکس و VIP توسط گروه مهندسی PFS</p>
     </section>
 
     <main class="content-container">
@@ -38,14 +38,14 @@
                 <div class="project-info">
                     <span class="tag">پنت‌هاوس مسکونی</span>
                     <h3>پنت‌هاوس ۳۵۰ متری نیاوران</h3>
-                    <p>بازسازی کامل صفر تا صد، سیستم BMS هوشمند، آشپزخانه انزو و متریال لوکس وارداتی.</p>
+                    <p>بازسازی کامل صفر تا صد، سیستم BMS هوشمند، آشپزخانه انزو و متریال لوکس و VIP وارداتی.</p>
                 </div>
             </div>
             <div class="project-card">
                 <div class="project-img p2"></div>
                 <div class="project-info">
-                    <span class="tag">تجاری / اداری</span>
-                    <h3>مجتمع تجاری - اداری فرشته</h3>
+                    <span class="tag">سازندگان / اداری</span>
+                    <h3>مجتمع سازندگان - اداری فرشته</h3>
                     <p>طراحی و اجرای مدرن دکوراسیون داخلی، نورپردازی خطی هوشمند و پارتیشن‌بندی شیشه‌ای.</p>
                 </div>
             </div>
@@ -68,7 +68,7 @@
             <div class="project-card">
                 <div class="project-img p2"></div>
                 <div class="project-info">
-                    <span class="tag">دفتر کار VIP</span>
+                    <span class="tag">دفتر کار لوکس و VIP</span>
                     <h3>دفتر مرکزی هلدینگ - سعادت‌آباد</h3>
                     <p>طراحی ارگونومیک، اتاق جلسات آکوستیک و هوشمندسازی کامل سیستم‌های برقی.</p>
                 </div>
@@ -199,8 +199,26 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+<!-- Cost Estimation Section Replacement -->
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+    var estimatorSection = document.querySelector('#calculator, .calculator, #estimation, .estimation-section');
+    
+    // Auto-update price package labels if form select/buttons exist
+    var packageSelects = document.querySelectorAll('select[name*="package"], select[name*="plan"], select[id*="package"]');
+    packageSelects.forEach(function(select) {
+        select.innerHTML = 
+            <option value="economic">اقتصادی</option>
+            <option value="builders">سازندگان</option>
+            <option value="luxury">لوکس و VIP</option>
+            <option value="ultra">سفارشی آرت / الترا لوکس</option>
+        ;
+    });
+});
+</script>
 </body>
 </html>
+
 
 
 

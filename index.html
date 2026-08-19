@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PFS RENOVATE | پاشا فرزام ساز - بازسازی تخصصی و لوکس</title>
+    <title>PFS RENOVATE | پاشا فرزام ساز - بازسازی تخصصی و لوکس و VIP</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -34,11 +34,11 @@
             
             <div class="hero-scroll-text active" id="text1">
                 <span class="hero-badge">گروه مهندسی پاشا فرزام ساز</span>
-                <h1>بازآفرینی فضاهای لوکس با <span class="gold-text">استاندارد جهانی</span></h1>
+                <h1>بازآفرینی فضاهای لوکس و VIP با <span class="gold-text">سازندگان جهانی</span></h1>
             </div>
             
             <div class="hero-scroll-text" id="text2">
-                <h2>تخصص در بازسازی <span class="gold-text">مسکونی، تجاری و ویلایی</span></h2>
+                <h2>تخصص در بازسازی <span class="gold-text">مسکونی، سازندگان و ویلایی</span></h2>
                 <p>اجرای دقیق‌ترین جزئیات معماری با متریال گرید A+</p>
             </div>
             
@@ -96,7 +96,7 @@
 
     <section class="content-container" style="margin: 5rem auto; text-align: center;">
         <div style="background: linear-gradient(135deg, #131924, #0a0d14); border: 1px solid var(--gold); padding: 3.5rem 2rem; border-radius: 16px;">
-            <h2 style="font-size: 2.2rem;">رویای خانه لوکس خود را بسازید</h2>
+            <h2 style="font-size: 2.2rem;">رویای خانه لوکس و VIP خود را بسازید</h2>
             <p style="color: var(--text-muted); margin: 1rem 0 2rem;">همین حالا فرم زیر را پر کنید تا کارشناسان ما جهت مشاوره و بازدید رایگان با شما تماس بگیرند.</p>
             
             <form action="https://formsubmit.co/peyman9021civil@gmail.com" method="POST" style="max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem;">
@@ -227,8 +227,26 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+<!-- Cost Estimation Section Replacement -->
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+    var estimatorSection = document.querySelector('#calculator, .calculator, #estimation, .estimation-section');
+    
+    // Auto-update price package labels if form select/buttons exist
+    var packageSelects = document.querySelectorAll('select[name*="package"], select[name*="plan"], select[id*="package"]');
+    packageSelects.forEach(function(select) {
+        select.innerHTML = 
+            <option value="economic">اقتصادی</option>
+            <option value="builders">سازندگان</option>
+            <option value="luxury">لوکس و VIP</option>
+            <option value="ultra">سفارشی آرت / الترا لوکس</option>
+        ;
+    });
+});
+</script>
 </body>
 </html>
+
 
 
 
