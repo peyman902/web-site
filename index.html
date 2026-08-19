@@ -409,8 +409,37 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+<!-- Global Logo Link to Homepage Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Link logo images
+    var logoImages = document.querySelectorAll('img[class*="logo"], img[id*="logo"], .logo img, header img');
+    logoImages.forEach(function(img) {
+        if (!img.closest('a')) {
+            var a = document.createElement('a');
+            a.href = 'index.html';
+            a.style.textDecoration = 'none';
+            a.style.color = 'inherit';
+            img.parentNode.insertBefore(a, img);
+            a.appendChild(img);
+        }
+    });
+
+    // 2. Link "PFS renovate" text or logo containers
+    var logoTexts = document.querySelectorAll('.logo, [class*="logo"], [id*="logo"]');
+    logoTexts.forEach(function(el) {
+        if (el.tagName !== 'A' && !el.closest('a') && el.innerText.includes('PFS')) {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', function() {
+                window.location.href = 'index.html';
+            });
+        }
+    });
+});
+</script>
 </body>
 </html>
+
 
 
 
