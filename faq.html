@@ -149,38 +149,40 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-<!-- Dark / Light Mode Toggle Button -->
-<div id="theme-toggle-btn" onclick="toggleTheme()" style="position: fixed; top: 20px; right: 20px; z-index: 9999; background: #1c2433; color: #d4af37; border: 1px solid #d4af37; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: all 0.3s ease;">
-    <i id="theme-icon" class="fa-solid fa-moon" style="font-size: 1.2rem;"></i>
+
+<!-- Top Fixed Theme Toggle (Day/Night Icon) -->
+<div id="theme-toggle-btn" onclick="toggleTheme()" title="تغییر حالت روز و شب" style="position: fixed; top: 15px; right: 20px; z-index: 10000; background: rgba(19, 25, 36, 0.9); color: #d4af37; border: 1px solid #d4af37; border-radius: 50%; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.4); backdrop-filter: blur(5px); transition: transform 0.2s ease;">
+    <i id="theme-icon" class="fa-solid fa-moon" style="font-size: 1.1rem;"></i>
 </div>
 
 <style>
-/* Dark Mode CSS Variables & Styles */
+/* Light Mode Styling Overrides */
 body.light-mode {
-    background-color: #ffffff !important;
-    color: #111111 !important;
+    background-color: #f8f9fa !important;
+    color: #1a1a1a !important;
 }
 body.light-mode header, 
-body.light-mode footer, 
-body.light-mode nav,
+body.light-mode nav, 
 body.light-mode .card,
-body.light-mode div:not(#chat-box):not(#chat-icon) {
-    background-color: #f4f6f9 !important;
+body.light-mode .service-item,
+body.light-mode section {
+    background-color: #ffffff !important;
     color: #222222 !important;
-    border-color: #ddd !important;
+    border-color: #e0e0e0 !important;
 }
 body.light-mode a {
-    color: #0056b3 !important;
+    color: #0066cc !important;
 }
 </style>
 
 <script>
-// Check saved preference on load
+// Load saved theme on initial page render
 (function() {
     var savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light') {
-        document.body.classList.add('light-mode');
+        document.documentElement.classList.add('light-mode');
         document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('light-mode');
             var icon = document.getElementById('theme-icon');
             if(icon) icon.className = 'fa-solid fa-sun';
         });
@@ -204,6 +206,7 @@ function toggleTheme() {
 </script>
 </body>
 </html>
+
 
 
 
