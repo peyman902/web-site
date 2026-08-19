@@ -110,7 +110,101 @@
         </div>
     </section>
 
-    <footer>
+    <!-- Cost Estimation Calculator Section -->
+<section id="cost-estimation" style="padding: 60px 20px; background: rgba(19, 25, 36, 0.6); text-align: center;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="color: #d4af37; font-size: 2rem; margin-bottom: 10px;">برآورد هزینه خدمات</h2>
+        <p style="color: #aaa; margin-bottom: 40px; font-size: 0.95rem;">پلن مورد نظر خود را انتخاب کرده یا متراژ پروژه را برای محاسبه وارد کنید.</p>
+        
+        <!-- 4 Distinct Pricing Cards -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px;">
+            
+            <!-- Card 1: Economic -->
+            <div style="background: #131924; border: 1px solid rgba(212,175,55,0.3); border-radius: 12px; padding: 25px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); text-align: center;">
+                <h3 style="color: #fff; font-size: 1.3rem; margin-bottom: 15px;">اقتصادی</h3>
+                <div style="color: #d4af37; font-size: 1.8rem; font-weight: bold; margin-bottom: 10px;">۸ <span style="font-size: 1rem; color: #ccc;">میلیون تومان</span></div>
+                <p style="color: #888; font-size: 0.85rem; margin-bottom: 20px;">به ازای هر متر مربع</p>
+                <ul style="color: #ddd; font-size: 0.9rem; list-style: none; padding: 0; line-height: 2; margin-bottom: 20px;">
+                    <li>کیفیت استاندارد و بهینه</li>
+                    <li>طراحی کاربردی</li>
+                    <li>۶ ماه گارانتی کتبی</li>
+                </ul>
+            </div>
+
+            <!-- Card 2: Builders -->
+            <div style="background: #131924; border: 1px solid rgba(212,175,55,0.3); border-radius: 12px; padding: 25px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); text-align: center;">
+                <h3 style="color: #fff; font-size: 1.3rem; margin-bottom: 15px;">سازندگان</h3>
+                <div style="color: #d4af37; font-size: 1.8rem; font-weight: bold; margin-bottom: 10px;">۱۳ <span style="font-size: 1rem; color: #ccc;">میلیون تومان</span></div>
+                <p style="color: #888; font-size: 0.85rem; margin-bottom: 20px;">به ازای هر متر مربع</p>
+                <ul style="color: #ddd; font-size: 0.9rem; list-style: none; padding: 0; line-height: 2; margin-bottom: 20px;">
+                    <li>مناسب پروژه‌های ساختمانی</li>
+                    <li>متریال مقاوم و تجاری</li>
+                    <li>۶ ماه گارانتی کتبی</li>
+                </ul>
+            </div>
+
+            <!-- Card 3: Luxury & VIP -->
+            <div style="background: #131924; border: 1px solid #d4af37; border-radius: 12px; padding: 25px 20px; box-shadow: 0 6px 20px rgba(212,175,55,0.15); text-align: center; position: relative;">
+                <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #d4af37; color: #000; font-size: 0.75rem; font-weight: bold; padding: 2px 12px; border-radius: 10px;">پیشنهادی</div>
+                <h3 style="color: #fff; font-size: 1.3rem; margin-bottom: 15px;">لوکس و VIP</h3>
+                <div style="color: #d4af37; font-size: 1.8rem; font-weight: bold; margin-bottom: 10px;">۲۵ <span style="font-size: 1rem; color: #ccc;">میلیون تومان</span></div>
+                <p style="color: #888; font-size: 0.85rem; margin-bottom: 20px;">به ازای هر متر مربع</p>
+                <ul style="color: #ddd; font-size: 0.9rem; list-style: none; padding: 0; line-height: 2; margin-bottom: 20px;">
+                    <li>متریال درجه یک و مدرن</li>
+                    <li>جزئیات بالای اجرا</li>
+                    <li>۶ ماه گارانتی کتبی</li>
+                </ul>
+            </div>
+
+            <!-- Card 4: Custom Art / Ultra Luxury -->
+            <div style="background: #131924; border: 1px solid rgba(212,175,55,0.3); border-radius: 12px; padding: 25px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); text-align: center;">
+                <h3 style="color: #fff; font-size: 1.3rem; margin-bottom: 15px;">سفارشی آرت / الترا لوکس</h3>
+                <div style="color: #d4af37; font-size: 1.8rem; font-weight: bold; margin-bottom: 10px;">۵۰ <span style="font-size: 1rem; color: #ccc;">میلیون تومان</span></div>
+                <p style="color: #888; font-size: 0.85rem; margin-bottom: 20px;">به ازای هر متر مربع</p>
+                <ul style="color: #ddd; font-size: 0.9rem; list-style: none; padding: 0; line-height: 2; margin-bottom: 20px;">
+                    <li>طراحی کاملاً سفارشی و خاص</li>
+                    <li>لوکس‌ترین متریال وارداتی</li>
+                    <li>۶ ماه گارانتی کتبی</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Calculator Interactive Area -->
+        <div style="background: #131924; border: 1px solid rgba(212,175,55,0.2); border-radius: 12px; padding: 25px; max-width: 600px; margin: 0 auto;">
+            <h4 style="color: #fff; margin-bottom: 15px; font-size: 1.1rem;">محاسبه‌گر سریع</h4>
+            <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
+                <select id="calc-package" style="flex: 1; min-width: 180px; padding: 10px; border-radius: 6px; background: #0f131d; color: #fff; border: 1px solid #333; font-family: inherit;">
+                    <option value="8">اقتصادی (۸ میلیون/متر)</option>
+                    <option value="13">سازندگان (۱۳ میلیون/متر)</option>
+                    <option value="25" selected>لوکس و VIP (۲۵ میلیون/متر)</option>
+                    <option value="50">سفارشی آرت / الترا لوکس (۵۰ میلیون/متر)</option>
+                </select>
+                <input type="number" id="calc-area" placeholder="متراژ (متر مربع)" style="flex: 1; min-width: 140px; padding: 10px; border-radius: 6px; background: #0f131d; color: #fff; border: 1px solid #333; font-family: inherit;">
+            </div>
+            <button onclick="calculateTotalCost()" style="width: 100%; background: #d4af37; color: #000; font-weight: bold; padding: 10px; border: none; border-radius: 6px; cursor: pointer; font-family: inherit;">محاسبه برآورد هزینه</button>
+            <div id="calc-result" style="margin-top: 15px; font-weight: bold; color: #4caf50; font-size: 1.1rem; display: none;"></div>
+        </div>
+    </div>
+</section>
+
+<script>
+function calculateTotalCost() {
+    var rate = parseFloat(document.getElementById('calc-package').value);
+    var area = parseFloat(document.getElementById('calc-area').value);
+    var resultDiv = document.getElementById('calc-result');
+    
+    if (isNaN(area) || area <= 0) {
+        alert('لطفاً متراژ معتبری وارد کنید.');
+        return;
+    }
+    
+    var total = rate * area;
+    resultDiv.innerText = 'حدود برآورد هزینه: ' + total.toLocaleString('fa-IR') + ' میلیون تومان';
+    resultDiv.style.display = 'block';
+}
+</script>
+<footer>
         <p>© 2026 شرکت مهندسی پاشا فرزام ساز (PFS RENOVATE) | <a href="contact.html" style="color: var(--gold);">تماس با ما</a> | <a href="faq.html" style="color: var(--gold);">سوالات متداول</a></p>
     </footer>
 
@@ -227,25 +321,10 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-<!-- Cost Estimation Section Replacement -->
-<script>
-window.addEventListener('DOMContentLoaded', function() {
-    var estimatorSection = document.querySelector('#calculator, .calculator, #estimation, .estimation-section');
-    
-    // Auto-update price package labels if form select/buttons exist
-    var packageSelects = document.querySelectorAll('select[name*="package"], select[name*="plan"], select[id*="package"]');
-    packageSelects.forEach(function(select) {
-        select.innerHTML = 
-            <option value="economic">اقتصادی</option>
-            <option value="builders">سازندگان</option>
-            <option value="luxury">لوکس و VIP</option>
-            <option value="ultra">سفارشی آرت / الترا لوکس</option>
-        ;
-    });
-});
-</script>
+
 </body>
 </html>
+
 
 
 
