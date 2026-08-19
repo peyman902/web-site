@@ -333,8 +333,54 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+<!-- Header & Language Selector Clean Fix -->
+<style>
+/* Fix Header Layout Across All Pages */
+header, nav, .navbar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 10px 25px !important;
+    position: relative !important;
+    z-index: 999 !important;
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+}
+
+/* Ensure navigation items fit neatly */
+header nav, .nav-links, .menu {
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+/* Dedicated position for language selector */
+#language-selector {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    margin-right: 10px !important;
+    display: inline-block !important;
+    z-index: 1000 !important;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Reposition language selector inside header control group if available
+    var langElem = document.getElementById('language-selector');
+    var header = document.querySelector('header') || document.querySelector('nav');
+    if (langElem && header) {
+        header.appendChild(langElem);
+    }
+});
+</script>
 </body>
 </html>
+
 
 
 
