@@ -323,8 +323,26 @@ function changeLanguage(langCode, langName, flagUrl) {
     }
 }
 </script>
+<!-- Material & Execution Level Auto-Update Script -->
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+    // Target any select element related to material / execution level
+    var levelSelects = document.querySelectorAll('select[name*="material"], select[name*="level"], select[name*="quality"], select[id*="material"], select[id*="level"], select[id*="quality"]');
+    
+    levelSelects.forEach(function(select) {
+        if (!select) return;
+        select.innerHTML = 
+            <option value="8">اقتصادی (۸ میلیون/متر)</option>
+            <option value="13">سازندگان (۱۳ میلیون/متر)</option>
+            <option value="25" selected>لوکس و VIP (۲۵ میلیون/متر)</option>
+            <option value="50">سفارشی آرت / الترا لوکس (۵۰ میلیون/متر)</option>
+        ;
+    });
+});
+</script>
 </body>
 </html>
+
 
 
 
