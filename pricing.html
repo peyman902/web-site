@@ -295,7 +295,38 @@ function calculateTotalCost() {
 }
 </script>
 
+<!-- Complete Working Theme Toggle Script -->
+<script>
+function toggleTheme() {
+    document.body.classList.toggle('light-mode');
+    var icon = document.getElementById('theme-icon');
+    
+    if (document.body.classList.contains('light-mode')) {
+        if (icon) {
+            icon.className = 'fa-solid fa-sun';
+        }
+        localStorage.setItem('pfs_theme', 'light');
+    } else {
+        if (icon) {
+            icon.className = 'fa-solid fa-moon';
+        }
+        localStorage.setItem('pfs_theme', 'dark');
+    }
+}
+
+// Apply stored theme preference on initial load
+document.addEventListener('DOMContentLoaded', function() {
+    if (localStorage.getItem('pfs_theme') === 'light') {
+        document.body.classList.add('light-mode');
+        var icon = document.getElementById('theme-icon');
+        if (icon) {
+            icon.className = 'fa-solid fa-sun';
+        }
+    }
+});
+</script>
 </body>
 </html>
+
 
 
