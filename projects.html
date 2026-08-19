@@ -183,7 +183,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
-<!-- Top Fixed Theme Toggle (Auto + Manual Day/Night) -->
+
+<!-- Top Fixed Theme Toggle (Session-based Day/Night) -->
 <div id="theme-toggle-btn" onclick="toggleThemeManual()" title="تغییر حالت روز و شب" style="position: fixed; top: 15px; right: 20px; z-index: 10000; background: rgba(19, 25, 36, 0.9); color: #d4af37; border: 1px solid #d4af37; border-radius: 50%; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.4); backdrop-filter: blur(5px); transition: transform 0.2s ease;">
     <i id="theme-icon" class="fa-solid fa-moon" style="font-size: 1.1rem;"></i>
 </div>
@@ -220,15 +221,15 @@ function applyTheme(isLight) {
     }
 }
 
-// Auto detection logic
 document.addEventListener('DOMContentLoaded', function() {
-    var userOverride = localStorage.getItem('theme_override'); // 'light' or 'dark'
+    // Check temporary selection for current tab session only
+    var sessionOverride = sessionStorage.getItem('theme_session'); // 'light' or 'dark'
     
-    if (userOverride) {
-        // User manually selected a preference
-        applyTheme(userOverride === 'light');
+    if (sessionOverride) {
+        // Apply user choice as long as the session/tab is open
+        applyTheme(sessionOverride === 'light');
     } else {
-        // Auto-detect based on current time (6 AM to 6 PM is Day)
+        // Automatic logic based on system/device time (6 AM to 6 PM is Day)
         var currentHour = new Date().getHours();
         var isDaytime = currentHour >= 6 && currentHour < 18;
         applyTheme(isDaytime);
@@ -241,12 +242,13 @@ function toggleThemeManual() {
     
     applyTheme(newThemeIsLight);
     
-    // Save manual choice so auto-detect is bypassed
-    localStorage.setItem('theme_override', newThemeIsLight ? 'light' : 'dark');
+    // Save preference only for the current active tab session
+    sessionStorage.setItem('theme_session', newThemeIsLight ? 'light' : 'dark');
 }
 </script>
 </body>
 </html>
+
 
 
 
