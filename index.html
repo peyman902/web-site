@@ -834,8 +834,40 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+    <!-- Scroll-Synced Background Video -->
+    <video id="bg-scroll-video" muted playsinline style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -1; opacity: 0.35; pointer-events: none;">
+        <source src="video.mov" type="video/mp4">
+        <source src="video.mov" type="video/quicktime">
+    </video>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const video = document.getElementById('bg-scroll-video');
+            
+            // Ensure video metadata is loaded to get total duration
+            video.addEventListener('loadedmetadata', function () {
+                let targetTime = 0;
+                
+                function updateVideoOnScroll() {
+                    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                    
+                    if (maxScroll > 0 && video.duration) {
+                        const scrollFraction = scrollTop / maxScroll;
+                        targetTime = scrollFraction * video.duration;
+                        video.currentTime = targetTime;
+                    }
+                    requestAnimationFrame(updateVideoOnScroll);
+                }
+                
+                window.addEventListener('scroll', updateVideoOnScroll);
+                updateVideoOnScroll();
+            });
+        });
+    </script>
 </body>
 </html>
+
 
 
 
