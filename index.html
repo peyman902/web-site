@@ -834,7 +834,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
-    <!-- Scroll-Synced Background Video -->
+        <!-- Scroll-Synced Background Video with Smooth Lerp -->
     <video id="bg-scroll-video" muted playsinline style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -1; opacity: 0.25; pointer-events: none;">
         <source src="video.mov" type="video/mp4">
         <source src="video.mov" type="video/quicktime">
@@ -843,30 +843,38 @@ document.addEventListener('DOMContentLoaded', function() {
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const video = document.getElementById('bg-scroll-video');
+            let targetTime = 0;
+            let currentTime = 0;
             
-            // Ensure video metadata is loaded to get total duration
             video.addEventListener('loadedmetadata', function () {
-                let targetTime = 0;
-                
-                function updateVideoOnScroll() {
+                function updateScroll() {
                     const scrollTop = window.scrollY || document.documentElement.scrollTop;
                     const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
                     
                     if (maxScroll > 0 && video.duration) {
                         const scrollFraction = scrollTop / maxScroll;
                         targetTime = scrollFraction * video.duration;
-                        video.currentTime = targetTime;
                     }
-                    requestAnimationFrame(updateVideoOnScroll);
                 }
-                
-                window.addEventListener('scroll', updateVideoOnScroll);
-                updateVideoOnScroll();
+
+                function render() {
+                    // Smooth lerp interpolation (0.1 control responsiveness vs smoothness)
+                    currentTime += (targetTime - currentTime) * 0.1;
+                    if (Math.abs(targetTime - currentTime) > 0.001) {
+                        video.currentTime = currentTime;
+                    }
+                    requestAnimationFrame(render);
+                }
+
+                window.addEventListener('scroll', updateScroll);
+                updateScroll();
+                render();
             });
         });
     </script>
 </body>
 </html>
+
 
 
 
