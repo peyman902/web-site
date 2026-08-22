@@ -31,11 +31,11 @@
             color: #718096 !important;
         }
     </style>
-    <style id="force-grey-theme">
-        /* Force all cards, boxes and form containers to dark-grey #adb5bd */
+        <style id="force-grey-theme">
+        /* Force all cards, boxes and form containers to dark-grey #495057 */
         .article-card, .project-card, [class*="card"], .why-us div, section div[style*="background"], form, .box {
-            background-color: #adb5bd !important;
-            border-color: rgba(0, 0, 0, 0.2) !important;
+            background-color: #495057 !important;
+            border-color: rgba(212, 175, 55, 0.3) !important;
         }
         
         /* Keep outer page body background dark for video contrast */
@@ -43,19 +43,24 @@
             background-color: #0f131d !important;
         }
         
-        /* High contrast dark text for all elements inside grey cards */
-        .article-card *, .project-card *, [style*="background-color: #adb5bd"] *, .why-us *, form * {
-            color: #0f172a !important;
+        /* High contrast light & gold text for elements inside #495057 cards */
+        .article-card *, .project-card *, [style*="background-color: #495057"] *, .why-us *, form * {
+            color: #f8f9fa !important;
         }
         
-        /* Stylish form inputs */
+        /* Gold accents for headers inside cards */
+        .article-card h3, .project-card h3, form h2, .why-us h3 {
+            color: #d4af37 !important;
+        }
+        
+        /* Form inputs styling for dark grey container */
         input, textarea {
-            background: #ffffff !important;
-            color: #0f172a !important;
+            background: #212529 !important;
+            color: #ffffff !important;
             border: 1px solid #6c757d !important;
         }
         input::placeholder, textarea::placeholder {
-            color: #495057 !important;
+            color: #adb5bd !important;
         }
     </style>
     <style id="sticky-header-style">
@@ -851,6 +856,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
 
 
 
