@@ -56,6 +56,17 @@
     </style>
             
     
+    <style id="photo-bg-style">
+        body {
+            background-image: url('ChatGPT Image Aug 22, 2026, 09_04_43 PM.png') !important;
+            background-size: cover !important;
+            background-position: center center !important;
+            background-repeat: no-repeat !important;
+            background-attachment: fixed !important;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
     <header style="position: sticky; top: 0; z-index: 1000; background: rgba(15, 19, 29, 0.95); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: space-between; padding: 12px 25px; background: #0f131d; border-bottom: 1px solid rgba(212,175,55,0.2); position: relative; z-index: 1000; direction: rtl;">
@@ -113,7 +124,7 @@
 
     <section id="video-hero" class="video-hero-container">
         <div class="video-sticky-wrapper">
-            <video id="scrollVideo" src="hero-video.mp4" preload="auto" muted playsinline></video>
+            
             <div class="video-overlay"></div>
             
             <div class="hero-scroll-text active" id="text1">
@@ -882,10 +893,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
         <!-- Scroll-Synced Background Video with Smooth Lerp -->
-    <video id="bg-scroll-video" muted playsinline style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -1; opacity: 0.25; pointer-events: none;">
-        <source src="video.mov" type="video/mp4">
-        <source src="video.mov" type="video/quicktime">
-    </video>
+    
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -921,6 +929,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
+
 
 
 
