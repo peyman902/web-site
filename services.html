@@ -44,62 +44,26 @@
             padding: 0;
         }
     </style>
-    <style id="custom-exact-header">
-        /* Reset margins */
-        body { margin: 0; padding: 0; }
-        
-        /* Modern Glassmorphic Header */
-        .site-header {
-            position: sticky;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 10000;
-            background: rgba(0, 0, 0, 0.25);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            box-sizing: border-box;
+    
+    <style id="header-visual-only">
+        /* Apply exact transparent design to original header element without touching HTML */
+        header, .header-nav, nav {
+            background: rgba(0, 0, 0, 0.25) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
         }
         
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 40px;
+        /* Ensure header text & links look clean and bright */
+        header a, .header-nav a, nav a {
+            color: #ffffff !important;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            transition: color 0.3s ease, opacity 0.3s ease;
         }
         
-        .brand-logo {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #ffffff;
-            text-decoration: none;
-            letter-spacing: 1px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 1.05rem;
-            font-weight: 400;
-            opacity: 0.9;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            opacity: 1;
-            color: #d4af37;
+        header a:hover, .header-nav a:hover, nav a:hover {
+            color: #d4af37 !important;
         }
     </style>
 </head>
@@ -694,6 +658,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
 
 
 
