@@ -9,6 +9,28 @@
     <!-- Favicon Integration -->
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="apple-touch-icon" href="logo.png">
+    <style id="custom-grey-cards">
+        .article-card, .project-card, [class*="card"], div[style*="background: #131924"], div[style*="background:#131924"], div[style*="background: #0f131d"] {
+            background: #ced4da !important;
+            color: #1a202c !important;
+            border-color: rgba(0, 0, 0, 0.15) !important;
+        }
+        .article-card h3, .article-card p, .article-card span, 
+        .project-card h3, .project-card p, 
+        div[style*="background: #131924"] h1, div[style*="background: #131924"] h2, 
+        div[style*="background: #131924"] h3, div[style*="background: #131924"] p, 
+        div[style*="background: #131924"] span, div[style*="background: #131924"] div {
+            color: #1a202c !important;
+        }
+        input, textarea, select {
+            background: #ffffff !important;
+            color: #1a202c !important;
+            border: 1px solid #a0aec0 !important;
+        }
+        input::placeholder, textarea::placeholder {
+            color: #718096 !important;
+        }
+    </style>
 </head>
 <body>
     <header style="position: sticky; top: 0; z-index: 1000; background: rgba(15, 19, 29, 0.95); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: space-between; padding: 12px 25px; background: #0f131d; border-bottom: 1px solid rgba(212,175,55,0.2); position: relative; z-index: 1000; direction: rtl;">
@@ -786,6 +808,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
 
 
 

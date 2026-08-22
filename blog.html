@@ -40,6 +40,28 @@
         .article-desc { color: #a0aec0; font-size: 0.85rem; margin: 0; line-height: 1.6; }
         .article-more { color: #d4af37; font-size: 0.85rem; font-weight: bold; margin-top: 15px; display: inline-block; }
     </style>
+    <style id="custom-grey-cards">
+        .article-card, .project-card, [class*="card"], div[style*="background: #131924"], div[style*="background:#131924"], div[style*="background: #0f131d"] {
+            background: #ced4da !important;
+            color: #1a202c !important;
+            border-color: rgba(0, 0, 0, 0.15) !important;
+        }
+        .article-card h3, .article-card p, .article-card span, 
+        .project-card h3, .project-card p, 
+        div[style*="background: #131924"] h1, div[style*="background: #131924"] h2, 
+        div[style*="background: #131924"] h3, div[style*="background: #131924"] p, 
+        div[style*="background: #131924"] span, div[style*="background: #131924"] div {
+            color: #1a202c !important;
+        }
+        input, textarea, select {
+            background: #ffffff !important;
+            color: #1a202c !important;
+            border: 1px solid #a0aec0 !important;
+        }
+        input::placeholder, textarea::placeholder {
+            color: #718096 !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -258,4 +280,5 @@
     </div>
 </body>
 </html>
+
 
