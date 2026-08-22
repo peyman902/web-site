@@ -31,6 +31,33 @@
             color: #718096 !important;
         }
     </style>
+    <style id="force-grey-theme">
+        /* Force all cards, boxes and form containers to dark-grey #adb5bd */
+        .article-card, .project-card, [class*="card"], .why-us div, section div[style*="background"], form, .box {
+            background-color: #adb5bd !important;
+            border-color: rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        /* Keep outer page body background dark for video contrast */
+        body {
+            background-color: #0f131d !important;
+        }
+        
+        /* High contrast dark text for all elements inside grey cards */
+        .article-card *, .project-card *, [style*="background-color: #adb5bd"] *, .why-us *, form * {
+            color: #0f172a !important;
+        }
+        
+        /* Stylish form inputs */
+        input, textarea {
+            background: #ffffff !important;
+            color: #0f172a !important;
+            border: 1px solid #6c757d !important;
+        }
+        input::placeholder, textarea::placeholder {
+            color: #495057 !important;
+        }
+    </style>
 </head>
 <body>
     <header style="position: sticky; top: 0; z-index: 1000; background: rgba(15, 19, 29, 0.95); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: space-between; padding: 12px 25px; background: #0f131d; border-bottom: 1px solid rgba(212,175,55,0.2); position: relative; z-index: 1000; direction: rtl;">
@@ -647,6 +674,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
 
 
 
