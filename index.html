@@ -67,60 +67,80 @@
             padding: 0;
         }
     </style>
+    <style id="custom-exact-header">
+        /* Reset margins */
+        body { margin: 0; padding: 0; }
+        
+        /* Modern Glassmorphic Header */
+        .site-header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10000;
+            background: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-sizing: border-box;
+        }
+        
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 40px;
+        }
+        
+        .brand-logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 1px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 400;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            opacity: 1;
+            color: #d4af37;
+        }
+    </style>
 </head>
 <body>
-    <header style="position: sticky; top: 0; z-index: 1000; background: rgba(15, 19, 29, 0.95); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: space-between; padding: 12px 25px; background: #0f131d; border-bottom: 1px solid rgba(212,175,55,0.2); position: relative; z-index: 1000; direction: rtl;">
-    <!-- Right Side: Logo Image + Text (Fixed Order) -->
-    <div style="display: flex; align-items: center; gap: 12px;">
-        <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-            <img src="logo.png" alt="PFS Logo" style="height: 42px; width: auto; object-fit: contain;">
-            <span style="color: #d4af37; font-weight: bold; font-size: 1.2rem; letter-spacing: 1px; line-height: 1.2; text-align: right;">
-                PFS
-                <small style="display: block; font-size: 0.65rem; color: #fff; letter-spacing: 1px;">RENOVATE</small>
-            </span>
-        </a>
-    </div>
-
-    <!-- Center Nav Links -->
-    <nav style="display: flex; align-items: center; gap: 20px; list-style: none; margin: 0; padding: 0;">
-        <a href="index.html" style="color: #fff; text-decoration: none; font-size: 0.9rem;">خانه</a>
-        <a href="projects.html" style="color: #fff; text-decoration: none; font-size: 0.9rem;">پروژه‌ها</a> <a href="blog.html" style="color: inherit; text-decoration: none; margin: 0 12px;">مقالات</a>
-        <a href="services.html" style="color: #fff; text-decoration: none; font-size: 0.9rem;">خدمات</a>
-        <a href="pricing.html" style="color: #fff; text-decoration: none; font-size: 0.9rem;">برآورد هزینه</a>
-        <a href="about.html" style="color: #fff; text-decoration: none; font-size: 0.9rem;">درباره ما / فرآیند کار</a>
-        <a href="faq.html" style="color: #fff; text-decoration: none; font-size: 0.9rem;">سوالات متداول</a>
-    </nav>
-
-    <!-- Left Side Controls (Unchanged) -->
-    <div class="header-controls" style="display: flex; align-items: center; gap: 12px;">
-        <!-- Theme Button -->
-        <button id="theme-toggle-btn" onclick="toggleTheme()" style="background: rgba(19, 25, 36, 0.9); color: #d4af37; border: 1px solid #d4af37; border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
-            <i class="fa-solid fa-moon" id="theme-icon"></i>
-        </button>
-
-        <!-- Contact CTA Button -->
-        <a href="contact.html" style="border: 1px solid #d4af37; color: #d4af37; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: bold;">تماس با ما</a>
-
-        <!-- Language Selector -->
-        <div id="language-selector" style="position: relative;">
-            <button onclick="toggleLangMenu()" style="background: rgba(19, 25, 36, 0.9); color: #d4af37; border: 1px solid #d4af37; border-radius: 20px; padding: 5px 12px; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
-                <img id="current-flag" src="https://flagcdn.com/w40/ir.png" alt="FA" style="width: 18px; height: 12px; border-radius: 2px;">
-                <span id="current-lang-text">فارسی</span>
-            </button>
-            <div id="lang-menu" style="display: none; position: absolute; top: 110%; left: 0; background: #131924; border: 1px solid #d4af37; border-radius: 8px; min-width: 120px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 10001;">
-                <div onclick="changeLanguage('fa', 'فارسی', 'https://flagcdn.com/w40/ir.png')" style="padding: 8px 10px; color: #fff; display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.8rem;">
-                    <img src="https://flagcdn.com/w40/ir.png" style="width: 18px; height: 12px;"> فارسی
-                </div>
-                <div onclick="changeLanguage('en', 'English', 'https://flagcdn.com/w40/gb.png')" style="padding: 8px 10px; color: #fff; display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.8rem;">
-                    <img src="https://flagcdn.com/w40/gb.png" style="width: 18px; height: 12px;"> English
-                </div>
-                <div onclick="changeLanguage('ar', 'العربية', 'https://flagcdn.com/w40/sa.png')" style="padding: 8px 10px; color: #fff; display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.8rem;">
-                    <img src="https://flagcdn.com/w40/sa.png" style="width: 18px; height: 12px;"> العربية
-                </div>
-            </div>
+        <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="brand-logo">PFS RENOVATE</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">صفحه اصلی</a></li>
+                    <li><a href="projects.html">پروژه‌ها</a></li>
+                    <li><a href="index.html#about">درباره ما</a></li>
+                    <li><a href="blog.html">مقالات</a></li>
+                    <li><a href="index.html#contact">تماس با ما</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
-</header>
+    </header>
 
     <section id="video-hero" class="video-hero-container">
         <div class="video-sticky-wrapper">
@@ -929,6 +949,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
+
 
 
 
