@@ -31,36 +31,37 @@
             color: #718096 !important;
         }
     </style>
-        <style id="force-grey-theme">
-        /* Force all cards, boxes and form containers to dark-grey #495057 */
+            <style id="force-grey-theme">
+        /* Force all cards, boxes and form containers to Leather tone #7b3f00 */
         .article-card, .project-card, [class*="card"], .why-us div, section div[style*="background"], form, .box {
-            background-color: #495057 !important;
-            border-color: rgba(212, 175, 55, 0.3) !important;
+            background-color: #7b3f00 !important;
+            border: 1px solid rgba(212, 175, 55, 0.4) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
         }
         
-        /* Keep outer page body background dark for video contrast */
+        /* Keep page body background dark for video contrast */
         body {
             background-color: #0f131d !important;
         }
         
-        /* High contrast light & gold text for elements inside #495057 cards */
-        .article-card *, .project-card *, [style*="background-color: #495057"] *, .why-us *, form * {
+        /* High contrast light & gold text inside leather cards */
+        .article-card *, .project-card *, [style*="background-color: #7b3f00"] *, .why-us *, form * {
             color: #f8f9fa !important;
         }
         
-        /* Gold accents for headers inside cards */
-        .article-card h3, .project-card h3, form h2, .why-us h3 {
-            color: #d4af37 !important;
+        /* Gold headings for luxury contrast */
+        .article-card h3, .project-card h3, form h2, .why-us h3, .article-title {
+            color: #ffd700 !important;
         }
         
-        /* Form inputs styling for dark grey container */
+        /* Form inputs styling for leather container */
         input, textarea {
-            background: #212529 !important;
+            background: #2b1810 !important;
             color: #ffffff !important;
-            border: 1px solid #6c757d !important;
+            border: 1px solid #d4af37 !important;
         }
         input::placeholder, textarea::placeholder {
-            color: #adb5bd !important;
+            color: #d1b8a5 !important;
         }
     </style>
     <style id="sticky-header-style">
@@ -732,6 +733,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
 
 
 
