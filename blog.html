@@ -3,89 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مقالات و جستارهای معماری | PFS RENOVATE</title>
+    <title>وبلاگ و مقالات آموزشی | PFS RENOVATE</title>
+    <meta name="description" content="مقالات تخصصی، نکات فنی مهندسی و راهنمای کامل بازسازی ساختمان، پنت‌لوکس و ویلاهای VIP توسط گروه مهندسی PFS RENOVATE.">
+    <meta name="keywords" content="مقالات بازسازی, آموزش بازسازی ساختمان, نکات طراحی داخلی VIP, هزینه بازسازی ویلا">
+    <meta name="robots" content="index, follow">
     <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Schema Markup for Blog Archive -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "مجله تخصصی بازسازی و معماری PFS RENOVATE",
+      "description": "مقالات آموزشی و تخصصی بازسازی و طراحی داخلی لوکس",
+      "publisher": {
+        "@type": "Organization",
+        "name": "PFS RENOVATE",
+        "logo": "https://peyman.github.io/MyAwesomeWebsite/logo.png"
+      }
+    }
+    </script>
+
     <style>
         body { margin: 0; padding: 0; font-family: 'Tahoma', sans-serif; background: #0f131d; color: #fff; }
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
-        .article-card { background: #131924; border: 1px solid rgba(212,175,55,0.2); border-radius: 12px; padding: 20px; transition: transform 0.3s ease; text-decoration: none; color: inherit; display: block; }
-        .article-card:hover { transform: translateY(-5px); border-color: #d4af37; }
-        .article-card h3 { color: #fff; font-size: 1.1rem; margin-top: 0; }
-        .article-card p { color: #a0aec0; font-size: 0.85rem; margin-bottom: 0; }
+        .header-nav { padding: 20px; text-align: center; border-bottom: 1px solid rgba(212,175,55,0.2); }
+        .header-nav a { color: #d4af37; text-decoration: none; font-weight: bold; font-size: 1.2rem; }
+        .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; margin-top: 35px; }
+        .article-card { background: #131924; border: 1px solid rgba(212,175,55,0.2); border-radius: 12px; overflow: hidden; transition: all 0.3s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+        .article-card:hover { transform: translateY(-5px); border-color: #d4af37; box-shadow: 0 8px 25px rgba(212,175,55,0.15); }
+        .article-thumb { height: 160px; background: #1a2232; display: flex; align-items: center; justify-content: center; color: rgba(212,175,55,0.4); font-size: 2rem; border-bottom: 1px solid rgba(212,175,55,0.1); }
+        .article-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .article-tag { color: #d4af37; font-size: 0.75rem; background: rgba(212,175,55,0.1); padding: 3px 10px; border-radius: 12px; width: fit-content; margin-bottom: 10px; }
+        .article-title { color: #fff; font-size: 1.05rem; margin: 0 0 10px 0; line-height: 1.5; }
+        .article-desc { color: #a0aec0; font-size: 0.85rem; margin: 0; line-height: 1.6; }
+        .article-more { color: #d4af37; font-size: 0.85rem; font-weight: bold; margin-top: 15px; display: inline-block; }
     </style>
 </head>
 <body>
-    <header style="padding: 20px; text-align: center; border-bottom: 1px solid rgba(212,175,55,0.2);">
-        <a href="index.html" style="color: #d4af37; text-decoration: none; font-weight: bold; font-size: 1.2rem;">PFS RENOVATE</a>
+
+    <header class="header-nav">
+        <a href="index.html">PFS RENOVATE</a>
     </header>
 
     <div class="container">
         <div style="text-align: center;">
             <span style="color: #d4af37; font-size: 0.85rem; letter-spacing: 1px;">دانش و مقالات</span>
-            <h1 style="color: #fff; font-size: 2rem; margin-top: 5px;">مجله تخصصی بازسازی و معماری</h1>
+            <h1 style="color: #fff; font-size: 2rem; margin-top: 5px;">مجله تخصصی بازسازی و معماری لوکس</h1>
+            <p style="color: #a0aec0; max-width: 600px; margin: 10px auto 0; font-size: 0.9rem;">جدیدترین متدها، اصول مهندسی و راهنمای جامع بازسازی فضاها</p>
         </div>
 
         <div class="articles-grid">            <a href="article-1.html" class="article-card">
-                <h3>عنوان مقاله شماره 1</h3>
-                <p>محل قرارگیری خلاصه مقاله شماره 1 ...</p>
+                <div class="article-thumb"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="article-body">
+                    <div>
+                        <span class="article-tag">راهنمای تخصصی</span>
+                        <h3 class="article-title">عنوان مقاله آموزشی شماره 1</h3>
+                        <p class="article-desc">بررسی الزامات فنی، انتخاب متریال گرید A و نکات کلیدی اجرا در پروژه‌های لوکس...</p>
+                    </div>
+                    <span class="article-more">مطالعه کامل مقاله ←</span>
+                </div>
             </a>            <a href="article-2.html" class="article-card">
-                <h3>عنوان مقاله شماره 2</h3>
-                <p>محل قرارگیری خلاصه مقاله شماره 2 ...</p>
+                <div class="article-thumb"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="article-body">
+                    <div>
+                        <span class="article-tag">راهنمای تخصصی</span>
+                        <h3 class="article-title">عنوان مقاله آموزشی شماره 2</h3>
+                        <p class="article-desc">بررسی الزامات فنی، انتخاب متریال گرید A و نکات کلیدی اجرا در پروژه‌های لوکس...</p>
+                    </div>
+                    <span class="article-more">مطالعه کامل مقاله ←</span>
+                </div>
             </a>            <a href="article-3.html" class="article-card">
-                <h3>عنوان مقاله شماره 3</h3>
-                <p>محل قرارگیری خلاصه مقاله شماره 3 ...</p>
+                <div class="article-thumb"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="article-body">
+                    <div>
+                        <span class="article-tag">راهنمای تخصصی</span>
+                        <h3 class="article-title">عنوان مقاله آموزشی شماره 3</h3>
+                        <p class="article-desc">بررسی الزامات فنی، انتخاب متریال گرید A و نکات کلیدی اجرا در پروژه‌های لوکس...</p>
+                    </div>
+                    <span class="article-more">مطالعه کامل مقاله ←</span>
+                </div>
             </a>            <a href="article-4.html" class="article-card">
-                <h3>عنوان مقاله شماره 4</h3>
-                <p>محل قرارگیری خلاصه مقاله شماره 4 ...</p>
+                <div class="article-thumb"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="article-body">
+                    <div>
+                        <span class="article-tag">راهنمای تخصصی</span>
+                        <h3 class="article-title">عنوان مقاله آموزشی شماره 4</h3>
+                        <p class="article-desc">بررسی الزامات فنی، انتخاب متریال گرید A و نکات کلیدی اجرا در پروژه‌های لوکس...</p>
+                    </div>
+                    <span class="article-more">مطالعه کامل مقاله ←</span>
+                </div>
             </a>            <a href="article-5.html" class="article-card">
-                <h3>عنوان مقاله شماره 5</h3>
-                <p>محل قرارگیری خلاصه مقاله شماره 5 ...</p>
+                <div class="article-thumb"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="article-body">
+                    <div>
+                        <span class="article-tag">راهنمای تخصصی</span>
+                        <h3 class="article-title">عنوان مقاله آموزشی شماره 5</h3>
+                        <p class="article-desc">بررسی الزامات فنی، انتخاب متریال گرید A و نکات کلیدی اجرا در پروژه‌های لوکس...</p>
+                    </div>
+                    <span class="article-more">مطالعه کامل مقاله ←</span>
+                </div>
             </a>            <a href="article-6.html" class="article-card">
-                <h3>عنوان مقاله شماره 6</h3>
-                <p>محل قرارگیری خلاصه مقاله شماره 6 ...</p>
+                <div class="article-thumb"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="article-body">
+                    <div>
+                        <span class="article-tag">راهنمای تخصصی</span>
+                        <h3 class="article-title">عنوان مقاله آموزشی شماره 6</h3>
+                        <p class="article-desc">بررسی الزامات فنی، انتخاب متریال گرید A و نکات کلیدی اجرا در پروژه‌های لوکس...</p>
+                    </div>
+                    <span class="article-more">مطالعه کامل مقاله ←</span>
+                </div>
             </a>            <a href="article-7.html" class="article-card">
-                <h3>عنوان مقاله شماره 7</h3>
-                <p>محل قرارگیری خلاصه مقاله شماره 7 ...</p>
+                <div class="article-thumb"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="article-body">
+                    <div>
+                        <span class="article-tag">راهنمای تخصصی</span>
+                        <h3 class="article-title">عنوان مقاله آموزشی شماره 7</h3>
+                        <p class="article-desc">بررسی الزامات فنی، انتخاب متریال گرید A و نکات کلیدی اجرا در پروژه‌های لوکس...</p>
+                    </div>
+                    <span class="article-more">مطالعه کامل مقاله ←</span>
+                </div>
             </a>            <a href="article-8.html" class="article-card">
-                <h3>عنوان مقاله شماره 8</h3>
-                <p>محل قرارگیری خلاصه مقاله شماره 8 ...</p>
+                <div class="article-thumb"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="article-body">
+                    <div>
+                        <span class="article-tag">راهنمای تخصصی</span>
+                        <h3 class="article-title">عنوان مقاله آموزشی شماره 8</h3>
+                        <p class="article-desc">بررسی الزامات فنی، انتخاب متریال گرید A و نکات کلیدی اجرا در پروژه‌های لوکس...</p>
+                    </div>
+                    <span class="article-more">مطالعه کامل مقاله ←</span>
+                </div>
             </a>            <a href="article-9.html" class="article-card">
-                <h3>عنوان مقاله شماره 9</h3>
-                <p>محل قرارگیری خلاصه مقاله شماره 9 ...</p>
+                <div class="article-thumb"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="article-body">
+                    <div>
+                        <span class="article-tag">راهنمای تخصصی</span>
+                        <h3 class="article-title">عنوان مقاله آموزشی شماره 9</h3>
+                        <p class="article-desc">بررسی الزامات فنی، انتخاب متریال گرید A و نکات کلیدی اجرا در پروژه‌های لوکس...</p>
+                    </div>
+                    <span class="article-more">مطالعه کامل مقاله ←</span>
+                </div>
             </a>            <a href="article-10.html" class="article-card">
-                <h3>عنوان مقاله شماره 10</h3>
-                <p>محل قرارگیری خلاصه مقاله شماره 10 ...</p>
+                <div class="article-thumb"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="article-body">
+                    <div>
+                        <span class="article-tag">راهنمای تخصصی</span>
+                        <h3 class="article-title">عنوان مقاله آموزشی شماره 10</h3>
+                        <p class="article-desc">بررسی الزامات فنی، انتخاب متریال گرید A و نکات کلیدی اجرا در پروژه‌های لوکس...</p>
+                    </div>
+                    <span class="article-more">مطالعه کامل مقاله ←</span>
+                </div>
             </a>            <a href="article-11.html" class="article-card">
-                <h3>عنوان مقاله شماره 11</h3>
-                <p>محل قرارگیری خلاصه مقاله شماره 11 ...</p>
+                <div class="article-thumb"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="article-body">
+                    <div>
+                        <span class="article-tag">راهنمای تخصصی</span>
+                        <h3 class="article-title">عنوان مقاله آموزشی شماره 11</h3>
+                        <p class="article-desc">بررسی الزامات فنی، انتخاب متریال گرید A و نکات کلیدی اجرا در پروژه‌های لوکس...</p>
+                    </div>
+                    <span class="article-more">مطالعه کامل مقاله ←</span>
+                </div>
             </a>            <a href="article-12.html" class="article-card">
-                <h3>عنوان مقاله شماره 12</h3>
-                <p>محل قرارگیری خلاصه مقاله شماره 12 ...</p>
+                <div class="article-thumb"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="article-body">
+                    <div>
+                        <span class="article-tag">راهنمای تخصصی</span>
+                        <h3 class="article-title">عنوان مقاله آموزشی شماره 12</h3>
+                        <p class="article-desc">بررسی الزامات فنی، انتخاب متریال گرید A و نکات کلیدی اجرا در پروژه‌های لوکس...</p>
+                    </div>
+                    <span class="article-more">مطالعه کامل مقاله ←</span>
+                </div>
             </a>            <a href="article-13.html" class="article-card">
-                <h3>عنوان مقاله شماره 13</h3>
-                <p>محل قرارگیری خلاصه مقاله شماره 13 ...</p>
+                <div class="article-thumb"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="article-body">
+                    <div>
+                        <span class="article-tag">راهنمای تخصصی</span>
+                        <h3 class="article-title">عنوان مقاله آموزشی شماره 13</h3>
+                        <p class="article-desc">بررسی الزامات فنی، انتخاب متریال گرید A و نکات کلیدی اجرا در پروژه‌های لوکس...</p>
+                    </div>
+                    <span class="article-more">مطالعه کامل مقاله ←</span>
+                </div>
             </a>            <a href="article-14.html" class="article-card">
-                <h3>عنوان مقاله شماره 14</h3>
-                <p>محل قرارگیری خلاصه مقاله شماره 14 ...</p>
+                <div class="article-thumb"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="article-body">
+                    <div>
+                        <span class="article-tag">راهنمای تخصصی</span>
+                        <h3 class="article-title">عنوان مقاله آموزشی شماره 14</h3>
+                        <p class="article-desc">بررسی الزامات فنی، انتخاب متریال گرید A و نکات کلیدی اجرا در پروژه‌های لوکس...</p>
+                    </div>
+                    <span class="article-more">مطالعه کامل مقاله ←</span>
+                </div>
             </a>            <a href="article-15.html" class="article-card">
-                <h3>عنوان مقاله شماره 15</h3>
-                <p>محل قرارگیری خلاصه مقاله شماره 15 ...</p>
+                <div class="article-thumb"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="article-body">
+                    <div>
+                        <span class="article-tag">راهنمای تخصصی</span>
+                        <h3 class="article-title">عنوان مقاله آموزشی شماره 15</h3>
+                        <p class="article-desc">بررسی الزامات فنی، انتخاب متریال گرید A و نکات کلیدی اجرا در پروژه‌های لوکس...</p>
+                    </div>
+                    <span class="article-more">مطالعه کامل مقاله ←</span>
+                </div>
             </a>            <a href="article-16.html" class="article-card">
-                <h3>عنوان مقاله شماره 16</h3>
-                <p>محل قرارگیری خلاصه مقاله شماره 16 ...</p>
+                <div class="article-thumb"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="article-body">
+                    <div>
+                        <span class="article-tag">راهنمای تخصصی</span>
+                        <h3 class="article-title">عنوان مقاله آموزشی شماره 16</h3>
+                        <p class="article-desc">بررسی الزامات فنی، انتخاب متریال گرید A و نکات کلیدی اجرا در پروژه‌های لوکس...</p>
+                    </div>
+                    <span class="article-more">مطالعه کامل مقاله ←</span>
+                </div>
             </a>            <a href="article-17.html" class="article-card">
-                <h3>عنوان مقاله شماره 17</h3>
-                <p>محل قرارگیری خلاصه مقاله شماره 17 ...</p>
+                <div class="article-thumb"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="article-body">
+                    <div>
+                        <span class="article-tag">راهنمای تخصصی</span>
+                        <h3 class="article-title">عنوان مقاله آموزشی شماره 17</h3>
+                        <p class="article-desc">بررسی الزامات فنی، انتخاب متریال گرید A و نکات کلیدی اجرا در پروژه‌های لوکس...</p>
+                    </div>
+                    <span class="article-more">مطالعه کامل مقاله ←</span>
+                </div>
             </a>            <a href="article-18.html" class="article-card">
-                <h3>عنوان مقاله شماره 18</h3>
-                <p>محل قرارگیری خلاصه مقاله شماره 18 ...</p>
+                <div class="article-thumb"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="article-body">
+                    <div>
+                        <span class="article-tag">راهنمای تخصصی</span>
+                        <h3 class="article-title">عنوان مقاله آموزشی شماره 18</h3>
+                        <p class="article-desc">بررسی الزامات فنی، انتخاب متریال گرید A و نکات کلیدی اجرا در پروژه‌های لوکس...</p>
+                    </div>
+                    <span class="article-more">مطالعه کامل مقاله ←</span>
+                </div>
             </a>            <a href="article-19.html" class="article-card">
-                <h3>عنوان مقاله شماره 19</h3>
-                <p>محل قرارگیری خلاصه مقاله شماره 19 ...</p>
+                <div class="article-thumb"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="article-body">
+                    <div>
+                        <span class="article-tag">راهنمای تخصصی</span>
+                        <h3 class="article-title">عنوان مقاله آموزشی شماره 19</h3>
+                        <p class="article-desc">بررسی الزامات فنی، انتخاب متریال گرید A و نکات کلیدی اجرا در پروژه‌های لوکس...</p>
+                    </div>
+                    <span class="article-more">مطالعه کامل مقاله ←</span>
+                </div>
             </a>            <a href="article-20.html" class="article-card">
-                <h3>عنوان مقاله شماره 20</h3>
-                <p>محل قرارگیری خلاصه مقاله شماره 20 ...</p>
+                <div class="article-thumb"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="article-body">
+                    <div>
+                        <span class="article-tag">راهنمای تخصصی</span>
+                        <h3 class="article-title">عنوان مقاله آموزشی شماره 20</h3>
+                        <p class="article-desc">بررسی الزامات فنی، انتخاب متریال گرید A و نکات کلیدی اجرا در پروژه‌های لوکس...</p>
+                    </div>
+                    <span class="article-more">مطالعه کامل مقاله ←</span>
+                </div>
             </a>        </div>
     </div>
 </body>
