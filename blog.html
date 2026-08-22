@@ -89,6 +89,22 @@
             color: #495057 !important;
         }
     </style>
+    <style id="sticky-header-style">
+        body {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+        header, .header-nav, nav {
+            position: -webkit-sticky !important;
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 99999 !important;
+            background: rgba(15, 19, 29, 0.95) !important;
+            backdrop-filter: blur(10px) !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -307,6 +323,7 @@
     </div>
 </body>
 </html>
+
 
 
 
