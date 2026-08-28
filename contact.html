@@ -118,6 +118,25 @@
             padding-top: 100px !important;
         }
     </style>
+    <style id="pfs-priority-1-fix">
+        /* Guarantee contrast and readability for text elements */
+        h1, h2, h3, h4, h5, h6, p, a, span, li {
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7) !important;
+        }
+        
+        /* Prevent top content from hiding under the transparent header */
+        body {
+            box-sizing: border-box !important;
+        }
+        
+        main, .main-content, .blog-container, .article-container, .projects-container {
+            padding-top: 110px !important;
+        }
+        
+        .why-us-container, .card, .service-card, .price-card {
+            color: #ffffff !important;
+        }
+    </style>
 </head>
 <body>
                         <header>
@@ -734,6 +753,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
 
 
 
