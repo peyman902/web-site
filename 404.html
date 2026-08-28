@@ -201,6 +201,34 @@
     <meta property="og:description" content="ارائه خدمات تخصصی و VIP بازسازی، دکوراسیون و معماری مدرن.">
     <meta property="og:image" content="logo.png">
     <meta name="twitter:card" content="summary_large_image">
+    <style id="pfs-whyus-fix">
+        /* Glassmorphism Dark Box for Why-Us Section */
+        .why-us-container, [class*="why-us"], [class*="why_us"] {
+            background: rgba(15, 23, 42, 0.82) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            padding: 40px 25px !important;
+            border-radius: 20px !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
+            margin-top: 30px !important;
+            margin-bottom: 30px !important;
+        }
+
+        /* Enforce pure white text with high contrast inside Why-Us block */
+        .why-us-container h2, .why-us-container h3, .why-us-container p, .why-us-container span,
+        [class*="why-us"] h2, [class*="why-us"] h3, [class*="why-us"] p, [class*="why-us"] span {
+            color: #ffffff !important;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9) !important;
+            opacity: 1 !important;
+        }
+
+        /* Gold highlight subtitle fix */
+        .why-us-container .subtitle, [class*="why-us"] .subtitle {
+            color: #fbbf24 !important;
+            font-weight: 600 !important;
+        }
+    </style>
 </head>
 <body style="text-align: center; padding-top: 15vh;">
                     <header>
@@ -773,6 +801,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
+
 
 
 
